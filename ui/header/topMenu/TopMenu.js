@@ -4,9 +4,7 @@ import Image from "next/image";
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
-import { TbBrandYoutube } from "react-icons/tb";
-import { FaWhatsapp } from "react-icons/fa6";
+import { FaTelegramF } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 
@@ -15,9 +13,7 @@ const TopMenu = () => {
     facebook: "",
     twitter: "",
     instagram: "",
-    linkedin: "",
-    youtube: "",
-    whatsapp: "",
+    telegram: "",
   });
 
   useEffect(() => {
@@ -83,24 +79,10 @@ const TopMenu = () => {
         </div>
         <div
           className={classes["social-elem"]}
-          onClick={() => handleSocialClick(socialLinks.linkedin)}
+          onClick={() => handleSocialClick(socialLinks.telegram)}
           style={{ cursor: "pointer" }}
         >
-          <FaLinkedinIn className={classes["social-icon"]} />
-        </div>
-        <div
-          className={classes["social-elem"]}
-          onClick={() => handleSocialClick(socialLinks.youtube)}
-          style={{ cursor: "pointer" }}
-        >
-          <TbBrandYoutube className={classes["social-icon"]} />
-        </div>
-        <div
-          className={classes["social-elem"]}
-          onClick={() => handleSocialClick(socialLinks.whatsapp)}
-          style={{ cursor: "pointer" }}
-        >
-          <FaWhatsapp className={classes["social-icon"]} />
+          <FaTelegramF className={classes["social-icon"]} />
         </div>
       </div>
       <div className={classes["info"]}>
