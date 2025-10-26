@@ -59,7 +59,7 @@ border: 0.4px solid #FFF;
   align-items: center;
   border-radius: 45.725px;
   background: radial-gradient(70.71% 70.71% at 50% 50%, rgba(0, 0, 0, 0.15) 50.03%, rgba(1, 210, 253, 0.30) 100%), rgba(255, 255, 255, 0.10);
-  gap: 12px;
+  gap: 8px;
   position: relative;
   border: none;
  width:fit-content;
@@ -97,13 +97,14 @@ line-height: 17.917px; /* 111.979% */
 
 }
 
-.price {
-  color: #FFF;
-  font-family: Lato;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 15.68px;
-  padding-right: 12px;
+.priceSection {
+  color: #00D4FE;
+  font-family: Sansation;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  margin: 12px 0 auto 0;
+  text-transform: capitalize;
 }
 
 .title {
