@@ -99,11 +99,11 @@ export default function ForexCourseDetail({ courseData }) {
                   </span>
                 </div>
                 <div className={styles.detailPrice}>
-                  ${discountedPrice.toFixed(2)}
+                  £{discountedPrice.toFixed(2)}
                   {discountPercentage > 0 && (
                     <>
                       <span className={styles.detailOldPrice}>
-                        ${originalPrice.toFixed(2)}
+                        £{originalPrice.toFixed(2)}
                       </span>
                       <span className={styles.detailDiscount}>
                         {discountPercentage}% OFF
@@ -145,11 +145,11 @@ export default function ForexCourseDetail({ courseData }) {
                   </span>
                 </div>
                 <div className={styles.detailPrice}>
-                  ${discountedPrice.toFixed(2)}
+                  £{discountedPrice.toFixed(2)}
                   {discountPercentage > 0 && (
                     <>
                       <span className={styles.detailOldPrice}>
-                        ${originalPrice.toFixed(2)}
+                        £{originalPrice.toFixed(2)}
                       </span>
                       <span className={styles.detailDiscount}>
                         {discountPercentage}% OFF
