@@ -25,6 +25,9 @@ export default function CourseCard({
       </div>
       <div className={styles.tagsRow}>
         <span className={styles.tag}>{data?.level}</span>
+        {data?.price && (
+          <span className={styles.price}>${data.price}</span>
+        )}
       </div>
       <div className={titleClass || styles.title}>{data?.title}</div>
       <div className={buttonsRowClass || styles.buttonsRow}>

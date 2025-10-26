@@ -59,9 +59,9 @@ border: 0.4px solid #FFF;
   align-items: center;
   border-radius: 45.725px;
   background: radial-gradient(70.71% 70.71% at 50% 50%, rgba(0, 0, 0, 0.15) 50.03%, rgba(1, 210, 253, 0.30) 100%), rgba(255, 255, 255, 0.10);
-  gap: 8px;
+  gap: 12px;
   position: relative;
-  border: none; 
+  border: none;
  width:fit-content;
 }
 .tagsRow::before {
@@ -95,6 +95,15 @@ font-size: 16px;
 font-weight: 700;
 line-height: 17.917px; /* 111.979% */
 
+}
+
+.price {
+  color: #FFF;
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 15.68px;
+  padding-right: 12px;
 }
 
 .title {
@@ -207,4 +216,3 @@ height:29px;
 }
 
 }
-
