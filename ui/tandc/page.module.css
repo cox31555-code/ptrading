@@ -1,0 +1,419 @@
+/* -------- Hero -------- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 583px;
+  padding: 102px 0px 100px 0px;
+  background: url("/svg/forexbgeffect.svg") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.heading {
+  color: #fff;
+  font-family: "Nunito Sans";
+  font-size: 73px;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-bottom: 25px;
+  padding: 0px 158px;
+}
+.subheading {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Nunito Sans";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+
+  padding: 0 297px;
+}
+
+.bannerTag {
+  margin-bottom: 30px;
+  max-width: 524px;
+  width: 100%;
+  padding: 10px 36px 0;
+  font-family: "Nunito Sans";
+  font-size: 20px;
+  height: 51px;
+  line-height: 30px;
+  gap: 6px;
+}
+.bannerTag::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: #00d4fe !important;
+}
+
+/* -------- Courses Section -------- */
+.courses {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 20px;
+  padding: 0 8%;
+  transform: translateY(-40px);
+  display: flex;
+  justify-content: center;
+}
+
+.filterContainer {
+  width: 100%;
+  max-width: 282px;
+  height: 202px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 212, 254, 0.53);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 212, 254, 0.02) 0%,
+    rgba(64, 221, 218, 0.02) 100%
+  );
+  backdrop-filter: blur(30px);
+
+  padding: 24px 27px 24px 23px;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #00d4fe;
+  font-family: "Nunito Sans";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  margin-top: 18px;
+}
+
+.chevron {
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: #00d4fe;
+  font: inherit;
+  cursor: pointer;
+}
+
+.priceLabelsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.priceLabel {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  font-family: "Nunito Sans";
+
+  align-items: center;
+  display: flex;
+}
+
+.priceNumber {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Nunito Sans";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 30px;
+  margin: 0px;
+}
+
+.slider {
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--slider-bg, #fff);
+  appearance: none;
+  outline: none;
+  border: none;
+  margin-bottom: 18px;
+}
+
+.slider::-webkit-slider-runnable-track {
+  background: transparent;
+  height: 6px;
+  border-radius: 4px;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #00d4fe;
+  border: 2px solid #fff;
+  cursor: pointer;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slider::-moz-range-track {
+  background: transparent;
+  height: 3px;
+  border-radius: 4px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+}
+
+.tabs .bots {
+  border: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #00d4fe;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
+  max-width: 120px;
+  width: 100%;
+  height: 44px;
+  padding: 7px 0;
+  border-radius: 51px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.tabs .bots::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 0.6px;
+  background: linear-gradient(to bottom, #fff, rgba(255, 255, 255, 0));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.tabs .viewAllBtn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Nunito Sans";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  justify-content: center;
+}
+
+.forexCard {
+  border-radius: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  width: 100%;
+  max-width: 25rem;
+  padding: 12px 12px 24px 12px;
+  height: 357px;
+  gap: 18px;
+}
+
+.forexImageWrapper {
+  overflow: hidden;
+  height: 151px;
+  border-radius: 20px;
+  border: 0.448px solid #fff;
+  margin-bottom: 18px;
+}
+
+.forexImageWrapper img,
+.forexImageWrapper .image {
+  object-fit: cover;
+}
+
+.forexCardTitle {
+  color: #fff;
+  font-family: Sansation;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  text-transform: capitalize;
+  width: 100%;
+  margin: 12px 0px;
+}
+
+@media (min-width: 850px) and (max-width: 1350px) {
+  .hero {
+    padding: 80px 24px 80px 24px;
+    height: auto;
+  }
+
+  .heading {
+    font-size: 48px;
+    font-weight: 700;
+    padding: 20 60px;
+    margin-bottom: 20px;
+  }
+
+  .subheading {
+    font-size: 16px;
+    line-height: 26px;
+    padding: 0 60px;
+  }
+
+  .bannerTag {
+    font-size: 14px;
+    padding: 10px 24px 0;
+    margin-bottom: 20px;
+  }
+  .courses {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .filterContainer {
+    max-width: 100%;
+    width: 100%;
+    padding: 24px;
+  }
+
+  .cardGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+
+  .forexCard {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.detailHeader {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+@media (max-width: 850px) {
+  .hero {
+    min-height: 597;
+    position: relative;
+    width: 100%;
+    padding: 64px 18px 0px 18px;
+    justify-content: flex-start;
+  }
+  .heading {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 42px;
+    padding: 0px;
+    margin-bottom: 16px;
+  }
+
+  .subheading {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 0;
+  }
+
+  .bannerTag {
+    margin-bottom: 16px;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 30px;
+    padding: 10px 22.999px 0px 23px;
+    display: inline-flex;
+    gap: 12px;
+  }
+
+  .bannerTag img {
+    width: 28.001px;
+    height: 31px;
+  }
+
+  /* -------- Courses Section -------- */
+  .courses {
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 18px;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-370px);
+  }
+
+  .filterContainer {
+    max-width: 339px;
+    padding: 24px 32.5px 25px 27.6px;
+  }
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .forexCard {
+    max-width: 339px;
+    height: 358;
+    width: 100%;
+  }
+
+  .forexImageWrapper {
+    overflow: hidden;
+    height: 151px;
+    border-radius: 20px;
+    border: 0.448px solid #fff;
+    margin-bottom: 18px;
+  }
+
+  .forexImageWrapper img,
+  .forexImageWrapper .image {
+    object-fit: cover;
+  }
+
+  .forexCardTitle {
+    color: #fff;
+    font-family: Sansation;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    text-transform: capitalize;
+    width: 100%;
+    margin: 12px 0px;
+  }
+}
+
+@media (max-width: 513) {
+  .courses {
+    transform: translateY(-320px);
+  }
+}
