@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
-import { FaTelegramF } from "react-icons/fa";
+import { FaTelegram } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 
@@ -82,7 +82,7 @@ const TopMenu = () => {
           onClick={() => handleSocialClick(socialLinks.telegram)}
           style={{ cursor: "pointer" }}
         >
-          <FaTelegramF className={classes["social-icon"]} />
+          <FaTelegram className={classes["social-icon"]} />
         </div>
       </div>
       <div className={classes["info"]}>
