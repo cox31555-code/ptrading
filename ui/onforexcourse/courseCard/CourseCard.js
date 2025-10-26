@@ -28,7 +28,7 @@ export default function CourseCard({
       </div>
       <div className={titleClass || styles.title}>{data?.title}</div>
       {data?.price && (
-        <div className={styles.priceSection}>${data.price}</div>
+        <div className={styles.priceSection}>£{data.price}</div>
       )}
       <div className={buttonsRowClass || styles.buttonsRow}>
         <Button

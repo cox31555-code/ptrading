@@ -121,8 +121,8 @@ export default function ForexPage({
           </div>
 
           <div className={styles.priceLabelsRow}>
-            <span className={styles.priceNumber}>${sliderValue}</span>
-            <span className={styles.priceNumber}>${maxPrice}</span>
+            <span className={styles.priceNumber}>£{sliderValue}</span>
+            <span className={styles.priceNumber}>£{maxPrice}</span>
           </div>
 
           <input
