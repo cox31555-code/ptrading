@@ -309,7 +309,6 @@
     margin-bottom: 20px;
   }
   .courses {
-    grid-template-columns: 1fr;
     gap: 20px;
     padding: 0 20px;
     align-items: center;
@@ -317,25 +316,13 @@
   }
 
   .filterContainer {
-    grid-column: 1;
-    grid-row: 1;
-    max-width: 100%;
-    width: 100%;
-    padding: 20px;
-    border-radius: 10px;
+    display: none;
   }
 
   .cardGrid {
-    grid-column: 1;
-    grid-row: 2;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
-  }
-
-  .paginationContainer {
-    grid-column: 1;
-    grid-row: 3;
   }
 
   .forexCard {
