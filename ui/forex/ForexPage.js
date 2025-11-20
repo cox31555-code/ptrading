@@ -22,6 +22,7 @@ export default function ForexPage({
   const [rangeMax, setRangeMax] = useState(priceTo || priceRange.max);
   const [sliderValue, setSliderValue] = useState(priceFrom || priceRange.min);
   const [maxPrice, setMaxPrice] = useState(priceTo || priceRange.max);
+  const [isClient, setIsClient] = useState(false);
 
   // Update state when props change
   useEffect(() => {
@@ -29,6 +30,11 @@ export default function ForexPage({
     setMaxPrice(priceTo || priceRange.max);
     setRangeMax(priceTo || priceRange.max);
   }, [priceFrom, priceTo, priceRange]);
+
+  // Ensure this component only hydrates on client
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleChevronClick = () => {
     const newMax = rangeMax + 100;
