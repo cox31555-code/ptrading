@@ -132,7 +132,11 @@ export default function ForexPage({
           ) : (
             <div className={styles.noCourses}>
               <h3>No courses found</h3>
-              <p>Try adjusting your search criteria.</p>
+              <p>
+                {searchTerm || filterPriceFrom || filterPriceTo
+                  ? "Try adjusting your search or price filter criteria."
+                  : "No courses available."}
+              </p>
             </div>
           )}
         </div>
