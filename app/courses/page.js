@@ -63,6 +63,8 @@ const page = async ({ searchParams }) => {
         priceTo={priceTo}
         priceRange={priceRange}
         searchParams={params}
+        currentPage={coursesData?.data?.page || 1}
+        totalPages={coursesData?.data?.pages || 1}
       />
     </div>
   );
