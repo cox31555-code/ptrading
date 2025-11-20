@@ -712,6 +712,177 @@
   letter-spacing: 0.5px;
 }
 
+/* Purchase Section */
+.purchaseSection {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(1, 188, 228, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.sectionSubtitle {
+  color: #fff;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+/* Tip Section */
+.tipSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tipButtons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tipButton {
+  padding: 10px 20px;
+  border: 1px solid rgba(0, 212, 254, 0.4);
+  border-radius: 8px;
+  background: rgba(0, 212, 254, 0.05);
+  color: rgba(255, 255, 255, 0.8);
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tipButton:hover {
+  border-color: #00d4fe;
+  background: rgba(0, 212, 254, 0.15);
+  color: #fff;
+}
+
+.tipButtonActive {
+  border-color: #00d4fe;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 254, 0.3) 0%,
+    rgba(79, 106, 239, 0.3) 100%
+  );
+  color: #00d4fe;
+}
+
+.tipAmount {
+  color: #00d4fe;
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 8px 0 0 0;
+}
+
+/* Promo Section */
+.promoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.promoInputGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.promoInput {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid rgba(1, 188, 228, 0.3);
+  border-radius: 8px;
+  background: rgba(0, 212, 254, 0.05);
+  color: #fff;
+  font-family: Lato;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.promoInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.promoInput:focus {
+  outline: none;
+  border-color: #00d4fe;
+  background: rgba(0, 212, 254, 0.1);
+}
+
+.promoButton {
+  padding: 12px 28px;
+  border: 1px solid #00d4fe;
+  border-radius: 8px;
+  background: rgba(0, 212, 254, 0.1);
+  color: #00d4fe;
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.promoButton:hover {
+  background: rgba(0, 212, 254, 0.2);
+  color: #fff;
+}
+
+.promoApplied {
+  color: #10c876;
+  font-family: Lato;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 4px 0 0 0;
+}
+
+/* Price Breakdown */
+.priceBreakdown {
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 212, 254, 0.2);
+  background: rgba(0, 212, 254, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.priceRow span:last-child {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.priceRowTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #00d4fe;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 700;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 212, 254, 0.2);
+}
+
 /* Reviews Section Mobile Styles */
 @media (max-width: 850px) {
   .reviewsSection {
