@@ -106,18 +106,18 @@ export default function Navbar({ variant = "default" }) {
                 FOREX
               </Link>
               <Link
+                href="/stocks"
+                className={classes.option}
+                onClick={() => setMenuOpen(false)}
+              >
+                STOCKS/INDICES
+              </Link>
+              <Link
                 href="/courses?category=crypto"
                 className={classes.option}
                 onClick={() => setMenuOpen(false)}
               >
                 CRYPTO
-              </Link>
-              <Link
-                href="/courses?category=indices/futures"
-                className={classes.option}
-                onClick={() => setMenuOpen(false)}
-              >
-                INDICIES/FUTURES
               </Link>
               <Link
                 href="/courses?category=bots"
