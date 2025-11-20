@@ -100,9 +100,10 @@ margin: 6px 0px 4px 0px;
 .buttonsRow {
   width: 100%;
   display: flex;
-  justify-content: space-between; 
-  gap: auto;               
+  justify-content: space-between;
+  gap: 8px;
   align-items: center;
+  margin-top: 8px;
 }
 .viewMoreBtn,
 .quickBuyBtn {
