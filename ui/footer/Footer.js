@@ -44,15 +44,19 @@ const Footer = () => {
           <h4 className={classes["title"]}>Our Courses</h4>
           <div className={classes["optionsSecond"]}>
             {[
-              "Forex Trading Course (For Beginners)",
-              "Forex Trading Advance Course (Level 1 + Level 2)",
-              "Forex Trading Advance Course (Level - 1)",
-              "Forex Trading Advance Course (Level - 2)",
-              "Forex Trading Complete Package",
+              { label: "Forex Trading Course (For Beginners)", href: "/courses?category=forex" },
+              { label: "Forex Trading Advance Course (Level 1 + Level 2)", href: "/courses?category=forex" },
+              { label: "Forex Trading Advance Course (Level - 1)", href: "/courses?category=forex" },
+              { label: "Forex Trading Advance Course (Level - 2)", href: "/courses?category=forex" },
+              { label: "Forex Trading Complete Package", href: "/courses?category=forex" },
             ].map((item, index) => (
-              <span key={index} className={classes.footerOptionSecondary}>
-                {item}
-              </span>
+              <Link
+                key={index}
+                href={item.href}
+                className={classes.footerOptionSecondary}
+              >
+                {item.label}
+              </Link>
             ))}
           </div>
         </div>
