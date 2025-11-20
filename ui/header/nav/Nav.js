@@ -47,8 +47,8 @@ export default function Navbar({ variant = "default" }) {
             <Link href="/courses?category=crypto" className={classes.option}>
               CRYPTO
             </Link>
-            <Link href="/courses?category=bots" className={classes.option}>
-              BOTS
+            <Link href="/bots" className={classes.option}>
+              TRADING BOTS
             </Link>
             <Link href="/courses?category=software" className={classes.option}>
               SOFTWARE
