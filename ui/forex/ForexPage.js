@@ -117,17 +117,23 @@ export default function ForexPage({
               <input
                 type="number"
                 className={styles.priceInput}
-                placeholder="Min"
+                placeholder="Min (£)"
+                min="0"
+                step="0.01"
                 value={filterPriceFrom}
-                onChange={(e) => setFilterPriceFrom(e.target.value)}
+                onChange={(e) => handlePriceInput(e.target.value, setFilterPriceFrom)}
+                title="Enter minimum price in GBP"
               />
               <span className={styles.priceInputSeparator}>-</span>
               <input
                 type="number"
                 className={styles.priceInput}
-                placeholder="Max"
+                placeholder="Max (£)"
+                min="0"
+                step="0.01"
                 value={filterPriceTo}
-                onChange={(e) => setFilterPriceTo(e.target.value)}
+                onChange={(e) => handlePriceInput(e.target.value, setFilterPriceTo)}
+                title="Enter maximum price in GBP"
               />
             </div>
           </div>
