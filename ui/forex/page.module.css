@@ -65,17 +65,7 @@
 }
 
 .filterContainer {
-  grid-column: 1;
-  grid-row: 1;
-  width: 100%;
-  max-width: 280px;
-  height: auto;
-  flex-shrink: 0;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 212, 254, 0.3);
-  background: rgba(10, 20, 40, 0.6);
-  backdrop-filter: blur(20px);
-  padding: 24px;
+  display: none;
 }
 
 .priceRow {
