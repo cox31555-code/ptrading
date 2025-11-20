@@ -8,6 +8,11 @@ export default function ForexCourseDetail({ courseData }) {
   const course = courseData;
   console.log(course);
   const [isMobile, setIsMobile] = useState(false);
+  const [activeTab, setActiveTab] = useState("description");
+  const [reviewRating, setReviewRating] = useState(0);
+  const [reviewComment, setReviewComment] = useState("");
+  const [isUserPaid, setIsUserPaid] = useState(false);
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 850);
