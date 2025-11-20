@@ -164,8 +164,28 @@ class CoursesAPI {
         max: Math.max(...prices),
       };
     } catch (error) {
-      console.error("Error fetching price range:", error);
-      return { min: 0, max: 1000 };
+      console.error("Error fetching price range from API, using mock data:", error);
+      // Fallback to mock data
+      try {
+        const mockResponse = await fetch("/dummy/forexCourses.json");
+        const mockCourses = await mockResponse.json();
+
+        if (mockCourses.length === 0) {
+          return { min: 0, max: 1000 };
+        }
+
+        const prices = mockCourses
+          .map((course) => parseFloat(course.price))
+          .filter((price) => !isNaN(price));
+
+        return {
+          min: Math.min(...prices),
+          max: Math.max(...prices),
+        };
+      } catch (mockError) {
+        console.error("Error loading mock price range:", mockError);
+        return { min: 0, max: 1000 };
+      }
     }
   }
 
