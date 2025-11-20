@@ -135,8 +135,7 @@ class CoursesAPI {
     } catch (error) {
       console.error("Error fetching categories from API, using mock data:", error);
       // Fallback to mock data
-      const mockResponse = await fetch("/dummy/forexCourses.json");
-      const mockCourses = await mockResponse.json();
+      const mockCourses = forexCoursesData;
       const categories = [...new Set(mockCourses.map((course) => course.category))];
       return categories.filter(Boolean);
     }
