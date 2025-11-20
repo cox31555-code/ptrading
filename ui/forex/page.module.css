@@ -556,6 +556,132 @@
   }
 }
 
+/* -------- Recommended Section -------- */
+.recommendedSection {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+.recommendedTitle {
+  color: #fff;
+  font-family: "Nunito Sans";
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.recommendedSubtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "Nunito Sans";
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 24px;
+  line-height: 20px;
+}
+
+.recommendedGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.recommendedCard {
+  max-width: 100%;
+  width: 100%;
+}
+
+.recommendedImageWrapper {
+  height: 180px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  border: 0.4px solid #fff;
+}
+
+.recommendedCardTitle {
+  color: #fff;
+  font-family: Sansation;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  text-transform: capitalize;
+  width: 100%;
+  margin: 4px 0;
+}
+
+.recommendedButtonsRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.recommendedViewMoreBtn,
+.recommendedQuickBuyBtn {
+  min-height: 34px !important;
+  height: 34px !important;
+  padding: 8px 16px !important;
+  border-radius: 52.257px !important;
+  font-size: 12px !important;
+  font-family: Lato;
+  font-weight: 500;
+  flex: 1;
+}
+
+/* Responsive adjustments for recommended section */
+@media (max-width: 1350px) {
+  .recommendedGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .recommendedTitle {
+    font-size: 24px;
+  }
+
+  .recommendedGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 850px) {
+  .recommendedSection {
+    margin: 0 auto 32px;
+    padding: 0 15px;
+  }
+
+  .recommendedTitle {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .recommendedSubtitle {
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+
+  .recommendedGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .recommendedViewMoreBtn,
+  .recommendedQuickBuyBtn {
+    min-height: 32px !important;
+    height: 32px !important;
+    padding: 6px 14px !important;
+    font-size: 11px !important;
+  }
+}
+
 .paginationContainer {
   display: flex;
   flex-wrap: wrap;
