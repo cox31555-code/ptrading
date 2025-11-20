@@ -25,11 +25,6 @@ export default function ForexPage({
     setIsClient(true);
   }, []);
 
-  // Handle view all - clear all params
-  const handleViewAll = () => {
-    router.push("/courses");
-  };
-
   // Handle pagination
   const handlePageChange = (pageNumber) => {
     const params = new URLSearchParams(currentSearchParams);
