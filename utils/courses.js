@@ -16,6 +16,7 @@ const axiosInstance = axios.create({
 class CoursesAPI {
   static async getAllCourses(params = {}) {
     try {
+      // Try fetching from API first
       const queryParams = {
         page: params.page || 1,
         limit: params.limit || 10,
@@ -49,8 +50,65 @@ class CoursesAPI {
 
       return response.data;
     } catch (error) {
-      console.error("Error fetching courses:", error);
-      throw error;
+      console.error("Error fetching courses from API, loading from mock data:", error);
+      // Fallback to mock data from JSON file
+      return this.getCoursesFromMockData(params);
+    }
+  }
+
+  static async getCoursesFromMockData(params = {}) {
+    try {
+      const response = await fetch("/dummy/forexCourses.json");
+      const mockCourses = await response.json();
+
+      // Apply filters
+      let filtered = mockCourses;
+
+      // Category filter
+      if (params.category) {
+        filtered = filtered.filter(course =>
+          course.category?.toLowerCase() === params.category?.toLowerCase()
+        );
+      }
+
+      // Price range filter
+      if (params.priceFrom !== undefined) {
+        filtered = filtered.filter(course =>
+          parseFloat(course.price) >= params.priceFrom
+        );
+      }
+      if (params.priceTo !== undefined) {
+        filtered = filtered.filter(course =>
+          parseFloat(course.price) <= params.priceTo
+        );
+      }
+
+      // Search filter
+      if (params.search) {
+        const searchLower = params.search.toLowerCase();
+        filtered = filtered.filter(course =>
+          course.title?.toLowerCase().includes(searchLower) ||
+          course.details?.toLowerCase().includes(searchLower)
+        );
+      }
+
+      // Pagination
+      const page = params.page || 1;
+      const limit = params.limit || 12;
+      const skip = (page - 1) * limit;
+      const paginatedCourses = filtered.slice(skip, skip + limit);
+
+      return {
+        data: {
+          data: paginatedCourses,
+          total: filtered.length,
+          page: page,
+          pages: Math.ceil(filtered.length / limit)
+        }
+      };
+    } catch (error) {
+      console.error("Error loading mock courses:", error);
+      return { data: { data: [] } };
     }
   }
 
@@ -133,4 +191,3 @@ class CoursesAPI {
 }
 
 export default CoursesAPI;
-
