@@ -522,3 +522,188 @@
     height: 145px;
   }
 }
+
+/* Reviews Section */
+.reviewsSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 30px;
+}
+
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.reviewCard {
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(1, 188, 228, 0.3);
+  background: rgba(0, 212, 254, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.reviewRating {
+  display: flex;
+  gap: 4px;
+}
+
+.reviewUser {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.reviewComment {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: Lato;
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0;
+}
+
+.noReviews {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: Lato;
+  font-size: 16px;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.reviewFormSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewFormTitle {
+  color: #fff;
+  font-family: Lato;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.reviewForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.formLabel {
+  color: #fff;
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ratingSelector {
+  display: flex;
+  gap: 12px;
+}
+
+.starButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.starIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.commentField {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(1, 188, 228, 0.3);
+  border-radius: 8px;
+  color: #fff;
+  font-family: Lato;
+  font-size: 14px;
+  padding: 12px;
+  resize: vertical;
+}
+
+.commentField::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.submitButton {
+  padding: 12px 24px;
+  border: 1px solid #00d4fe;
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 212, 254, 0.15) 0%,
+    rgba(79, 106, 239, 0.15) 100%
+  );
+  color: #fff;
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 212, 254, 0.25) 0%,
+    rgba(79, 106, 239, 0.25) 100%
+  );
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.unpaidMessage {
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid rgba(1, 188, 228, 0.3);
+  background: rgba(0, 212, 254, 0.05);
+}
+
+.unpaidMessage p {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: Lato;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Reviews Section Mobile Styles */
+@media (max-width: 850px) {
+  .reviewsSection {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .reviewsList {
+    order: 2;
+  }
+
+  .reviewFormSection {
+    order: 1;
+  }
+}
