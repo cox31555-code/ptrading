@@ -77,16 +77,17 @@ display: block;
 .card {
  display: flex;
 width: 282px;
-height:407px;
+height: auto;
+min-height: 407px;
 padding: 12px 12px 24px 12px;
 flex-direction: column;
-align-items: center;
+align-items: stretch;
 border-radius: 16px;
 border: 1px solid rgba(0, 212, 254, 0.53);
 background: linear-gradient(180deg, rgba(0, 212, 254, 0.02) 0%, rgba(1, 188, 228, 0.02) 100%) !important;
-
 backdrop-filter: blur(30px);
-  transition: box-shadow 0.2s, border-color 0.2s;
+transition: box-shadow 0.2s, border-color 0.2s;
+flex-shrink: 0;
 }
 
 .card:hover {
