@@ -214,12 +214,8 @@ border-radius: 50%;
 }
 @media (min-width: 901px) and (max-width: 1220px) {
   .coursesSection {
-    padding: 0px 32px 60px 32px;
+    padding: 0px 20px 60px 20px;
   }
-  .headingRow {
-padding: 0px 39px
-
-}
 
   .heading {
     font-size: 30px;
@@ -227,7 +223,7 @@ padding: 0px 39px
   }
 
   .headingRow {
-    padding-right: 0;
+    padding: 0px 20px;
     margin: 0;
     flex-direction: row;
     align-items: center;
@@ -235,15 +231,15 @@ padding: 0px 39px
   }
 
   .coursesGrid {
-    display: grid;
-     grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
     margin: 40px 0;
   }
 
  .card {
-  width: 100%;
-  max-width: none;
+  width: 282px;
   padding: 12px;
 }
 
