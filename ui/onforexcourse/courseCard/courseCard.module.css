@@ -61,8 +61,8 @@ border: 0.4px solid #FFF;
 }
 
 .star {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   object-fit: contain;
   display: block;
 }
