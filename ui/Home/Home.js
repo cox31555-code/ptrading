@@ -13,6 +13,7 @@ import TopBar from "../landing-page/courses/TopBar";
 import Courses from "../landing-page/courses/Courses";
 import ChooseCourse from "../landing-page/chooseCourse/ChooseCourse";
 import CoursesAPI from "@/utils/courses";
+// import BlogSection from "../landing-page/blogSection/BlogSection"; // Removed from homepage
 
 export default function Home({ courses }) {
   const [courseList, setCourseList] = useState([]);
