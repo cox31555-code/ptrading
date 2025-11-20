@@ -181,7 +181,7 @@ export default function ForexPage({
           )}
         </div>
 
-        {totalPages > 1 && (
+        {isClient && totalPages > 1 && (
           <div className={styles.paginationContainer}>
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
               <button
