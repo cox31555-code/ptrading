@@ -2,6 +2,7 @@
 import styles from "./courseCard.module.css";
 import Button from "../../common/button/Button";
 import { useRouter } from "next/navigation";
+
 export default function CourseCard({
   data,
   onViewMore,
@@ -14,6 +15,37 @@ export default function CourseCard({
   quickBuyBtnClass,
 }) {
   const router = useRouter();
+
+  const getAverageRating = () => {
+    if (!data?.reviews || data.reviews.length === 0) return 0;
+    const totalRating = data.reviews.reduce(
+      (sum, review) => sum + (review.rating || 0),
+      0
+    );
+    return Math.round(totalRating / data.reviews.length);
+  };
+
+  const renderStars = (rating) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      stars.push(
+        <img
+          key={i}
+          src={
+            i <= rating
+              ? "/svg/bluestar-single.svg"
+              : "/svg/whitestar-single.svg"
+          }
+          alt={i <= rating ? "Blue Star" : "White Star"}
+          className={styles.star}
+        />
+      );
+    }
+    return stars;
+  };
+
+  const averageRating = getAverageRating();
+
   return (
     <div className={className || styles.card}>
       <div className={imageWrapperClass || styles.imageWrapper}>
@@ -23,8 +55,9 @@ export default function CourseCard({
           className={styles.image}
         />
       </div>
-      <div className={styles.tagsRow}>
-        <span className={styles.tag}>{data?.level}</span>
+      <div className={styles.ratingContainer}>
+        {renderStars(averageRating)}
+        <span className={styles.reviewCount}>({data?.reviews?.length || 0})</span>
       </div>
       <div className={titleClass || styles.title}>{data?.title}</div>
       {data?.price && (
