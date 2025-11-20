@@ -97,6 +97,7 @@ text-transform: capitalize;
 max-width: 100%;
 width: 100%;
 margin: 6px 0px 4px 0px;
+flex-grow: 1;
 }
 .buttonsRow {
   width: 100%;
