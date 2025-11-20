@@ -12,6 +12,9 @@ export default function ForexCourseDetail({ courseData }) {
   const [reviewRating, setReviewRating] = useState(0);
   const [reviewComment, setReviewComment] = useState("");
   const [isUserPaid, setIsUserPaid] = useState(false);
+  const [tipPercentage, setTipPercentage] = useState(0);
+  const [promoCode, setPromoCode] = useState("");
+  const [promoDiscount, setPromoDiscount] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
