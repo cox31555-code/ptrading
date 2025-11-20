@@ -235,17 +235,15 @@
 .tabs .viewAllBtn {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.6);
   font-family: "Nunito Sans";
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 20px;
-  transition: all 0.3s ease;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  transition: all 0.2s ease;
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
   padding: 0;
-  min-width: 70px;
+  min-width: auto;
 }
 
 .tabs .viewAllBtn:hover {
