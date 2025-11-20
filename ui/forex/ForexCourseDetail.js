@@ -127,6 +127,38 @@ export default function ForexCourseDetail({ courseData }) {
     );
   };
 
+  // Handle promo code validation
+  const handleApplyPromoCode = () => {
+    // TODO: Validate promo code with API
+    const validCodes = {
+      SAVE10: 10,
+      SAVE20: 20,
+      SAVE25: 25,
+      WELCOME15: 15,
+    };
+
+    if (validCodes[promoCode.toUpperCase()]) {
+      setPromoDiscount(validCodes[promoCode.toUpperCase()]);
+    } else {
+      alert("Invalid promo code");
+      setPromoDiscount(0);
+    }
+  };
+
+  // Calculate final price
+  const calculateFinalPrice = () => {
+    let finalPrice = discountedPrice;
+    finalPrice -= (finalPrice * promoDiscount) / 100;
+    const tipAmount = (finalPrice * tipPercentage) / 100;
+    return {
+      subtotal: discountedPrice,
+      promoDiscount: (discountedPrice * promoDiscount) / 100,
+      afterPromo: finalPrice,
+      tipAmount: tipAmount,
+      total: finalPrice + tipAmount,
+    };
+  };
+
   // Handle review submission
   const handleSubmitReview = async (e) => {
     e.preventDefault();
