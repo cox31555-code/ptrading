@@ -389,21 +389,11 @@
   }
 
   .filterContainer {
-    grid-column: 1;
-    grid-row: 1;
-    max-width: 339px;
-    padding: 24px 32.5px 25px 27.6px;
+    display: none;
   }
 
   .cardGrid {
-    grid-column: 1;
-    grid-row: 2;
     grid-template-columns: 1fr;
-  }
-
-  .paginationContainer {
-    grid-column: 1;
-    grid-row: 3;
   }
 
   .forexCard {
