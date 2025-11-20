@@ -133,8 +133,12 @@ class CoursesAPI {
       const categories = [...new Set(courses.map((course) => course.category))];
       return categories.filter(Boolean); // Remove empty values
     } catch (error) {
-      console.error("Error fetching categories:", error);
-      return [];
+      console.error("Error fetching categories from API, using mock data:", error);
+      // Fallback to mock data
+      const mockResponse = await fetch("/dummy/forexCourses.json");
+      const mockCourses = await mockResponse.json();
+      const categories = [...new Set(mockCourses.map((course) => course.category))];
+      return categories.filter(Boolean);
     }
   }
 
