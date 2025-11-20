@@ -40,6 +40,17 @@ const Courses = ({
     setCurrent((prev) => Math.min(DOTS_COUNT - 1, prev + 1));
   const goTo = (idx) => setCurrent(idx);
 
+  const handleViewMore = (courseId, category) => {
+    // Determine the correct route based on category
+    let route = "/courses";
+    if (category === "Stocks" || category === "Indices") {
+      route = "/stocks";
+    } else if (category === "Bots") {
+      route = "/bots";
+    }
+    router.push(`${route}/${courseId}`);
+  };
+
   return (
     <>
       <div className={classes.headingRow}>
