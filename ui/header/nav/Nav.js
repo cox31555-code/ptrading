@@ -41,14 +41,11 @@ export default function Navbar({ variant = "default" }) {
               <Link href="/courses?category=forex" className={classes.option}>
               FOREX
             </Link>
+            <Link href="/stocks" className={classes.option}>
+              STOCKS/INDICES
+            </Link>
             <Link href="/courses?category=crypto" className={classes.option}>
               CRYPTO
-            </Link>
-            <Link
-              href="/courses?category=indices/futures"
-              className={classes.option}
-            >
-              INDICIES/FUTURES
             </Link>
             <Link href="/courses?category=bots" className={classes.option}>
               BOTS
