@@ -292,6 +292,10 @@
   backdrop-filter: blur(95px);
 }
 
+.detailBuyBtn {
+  margin-top: 32px;
+}
+
 .detailTabReview {
   color: #fff;
   font-family: Lato;
