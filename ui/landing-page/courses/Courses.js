@@ -8,6 +8,7 @@ const Courses = ({
   cardsPerView: initialCardsPerView = 4,
   sectionTitle = "Our Latest Courses",
 }) => {
+  const router = useRouter();
   const [current, setCurrent] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(initialCardsPerView);
 
