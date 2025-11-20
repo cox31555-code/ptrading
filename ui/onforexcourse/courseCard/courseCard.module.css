@@ -104,8 +104,9 @@ flex-grow: 1;
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  align-items: center;
-  margin-top: 8px;
+  align-items: stretch;
+  margin-top: auto;
+  flex-shrink: 0;
 }
 .viewMoreBtn,
 .quickBuyBtn {
