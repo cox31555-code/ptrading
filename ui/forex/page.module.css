@@ -413,9 +413,21 @@
     display: none;
   }
 
+  .searchFilterContainer {
+    padding: 0 15px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .priceFilterContainer {
+    min-width: auto;
+    width: 100%;
+  }
+
   .cardGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
     width: 100%;
   }
 
