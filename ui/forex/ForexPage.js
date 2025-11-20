@@ -28,6 +28,27 @@ export default function ForexPage({
     setIsClient(true);
   }, []);
 
+  // Get average rating for a course
+  const getAverageRating = (course) => {
+    if (!course?.reviews || course.reviews.length === 0) return 0;
+    const totalRating = course.reviews.reduce(
+      (sum, review) => sum + (review.rating || 0),
+      0
+    );
+    return Math.round(totalRating / course.reviews.length);
+  };
+
+  // Get top 3 highest rated courses
+  const getTopRatedCourses = () => {
+    return courses
+      .sort((a, b) => {
+        const ratingA = getAverageRating(a);
+        const ratingB = getAverageRating(b);
+        return ratingB - ratingA;
+      })
+      .slice(0, 3);
+  };
+
   // Format price to GBP currency
   const formatGBP = (value) => {
     if (!value) return "";
@@ -47,6 +68,8 @@ export default function ForexPage({
       setter(value);
     }
   };
+
+  const topRatedCourses = getTopRatedCourses();
 
   // Filter courses based on search and price
   const filteredCourses = courses.filter((course) => {
