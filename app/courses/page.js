@@ -69,6 +69,7 @@ const page = async ({ searchParams }) => {
 
       <ForexPage
         courses={coursesData?.data?.data || []}
+        allCourses={allCoursesData?.data?.data || []}
         category={category}
         priceFrom={priceFrom}
         priceTo={priceTo}
