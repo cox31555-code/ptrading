@@ -224,31 +224,44 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0px;
+  margin: 0 0 20px 0;
+  gap: 8px;
 }
 
 .tabs .bots {
-  border: none;
+  border: 1px solid rgba(0, 212, 254, 0.4);
   background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.01) 100%
+    135deg,
+    rgba(0, 212, 254, 0.1) 0%,
+    rgba(0, 212, 254, 0.02) 100%
   );
-
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: #00d4fe;
-  font-family: Inter;
-  font-size: 18px;
+  font-family: "Nunito Sans";
+  font-size: 14px;
   font-weight: 700;
-  line-height: 30px;
+  line-height: 20px;
   max-width: 120px;
   width: 100%;
-  height: 44px;
-  padding: 7px 0;
-  border-radius: 51px;
+  height: 42px;
+  padding: 11px 16px;
+  border-radius: 8px;
   flex-shrink: 0;
   cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tabs .bots:hover {
+  border-color: #00d4fe;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 254, 0.15) 0%,
+    rgba(0, 212, 254, 0.05) 100%
+  );
+  box-shadow: 0 4px 12px rgba(0, 212, 254, 0.2);
 }
 
 .tabs .bots::before {
@@ -257,7 +270,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 0.6px;
-  background: linear-gradient(to bottom, #fff, rgba(255, 255, 255, 0));
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
