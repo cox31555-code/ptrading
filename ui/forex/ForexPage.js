@@ -46,9 +46,6 @@ export default function ForexPage({
     );
   };
 
-  const percent =
-    ((sliderValue - priceRange.min) / (rangeMax - priceRange.min)) * 100;
-
   return (
     <>
       <section className={styles.hero}>
@@ -70,39 +67,6 @@ export default function ForexPage({
         <span className={styles["white-ellipse-forex"]}></span>
         <span className={styles["blue-ellipse-forex"]}></span>
 
-        <div className={styles.filterContainer}>
-          <div className={styles.tabs}>
-            <button className={styles.bots}>{getCategoryDisplayName()}</button>
-            <button className={styles.viewAllBtn} onClick={handleViewAll}>
-              View All
-            </button>
-          </div>
-
-          <div className={styles.priceRow}>
-            <span className={styles.priceLabel}>Price</span>
-            <button className={styles.chevron} onClick={handleChevronClick}>
-              ^
-            </button>
-          </div>
-
-          <div className={styles.priceLabelsRow}>
-            <span className={styles.priceNumber}>£{sliderValue}</span>
-            <span className={styles.priceNumber}>£{maxPrice}</span>
-          </div>
-
-          <input
-            type="range"
-            min={priceRange.min}
-            max={rangeMax}
-            value={sliderValue}
-            // step={100}
-            onChange={(e) => handleSliderChange(Number(e.target.value))}
-            className={styles.slider}
-            style={{
-              "--slider-bg": `linear-gradient(to right, #00D4FE 0%, #00D4FE ${percent}%, #fff ${percent}%, #fff 100%)`,
-            }}
-          />
-        </div>
         <div className={styles.cardGrid}>
           {courses.length > 0 ? (
             courses.map((course) => (
