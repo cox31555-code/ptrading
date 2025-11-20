@@ -75,6 +75,14 @@ export default function ForexPage({
     router.push("/courses");
   };
 
+  // Handle pagination
+  const handlePageChange = (pageNumber) => {
+    const params = new URLSearchParams(currentSearchParams);
+    params.set("page", pageNumber.toString());
+    router.push(`/courses?${params.toString()}`);
+    window.scrollTo(0, 0);
+  };
+
   // Get category display name
   const getCategoryDisplayName = () => {
     if (!category) return "All";
