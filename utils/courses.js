@@ -127,7 +127,7 @@ class CoursesAPI {
 
     if (mockCourse) {
       console.log("Found mock course:", mockCourse.title);
-      return { data: mockCourse };
+      return { data: { data: mockCourse } };
     }
 
     console.log("Course not found in mock data, attempting API");
