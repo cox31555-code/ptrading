@@ -1,11 +1,16 @@
 .coursesSection {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
   background: #0B1113;
-  padding: 0px 120px 100px 120px;
+  padding: 0px 20px 100px 20px;
   justify-content: center;
   align-items: center;
+  display: flex;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .headingRow {
