@@ -33,7 +33,7 @@ export default function RefundPolicyPage() {
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>2. COMPANY INFORMATION</h2>
             <p className={styles.sectionText}>
-              <strong>Legal Name:</strong> Polar Trading Services LTD <strong>Business Type: </strong>Private Limited Company <strong>Website: </strong>polartradingservices.com <strong>Email: </strong>info@polartradingservices.com <strong>Registered Office: </strong>9856 North Street, North West London, NW12 5IA
+              <strong>Legal Name:</strong> Polar Trading Services LTD <strong>Business Type: </strong>Private Limited Company <strong>Website: </strong>polartradingservices.com <strong>Email: </strong>info@polartradingservices.com <strong>Registered Office: </strong>189 Wulfstan Street London, W120AB, United Kingdom
             </p>
           </section>
 
@@ -103,7 +103,7 @@ export default function RefundPolicyPage() {
             <h2 className={styles.sectionTitle}>10. CONTACT INFORMATION</h2>
             <p className={styles.sectionText}>
               For any questions about this Cookie Policy or our data practices, please contact us:
-              <strong>Polar Trading Services LTD</strong> <strong>Email: </strong>info@polartradingservices.com <strong>Website: </strong>www.polartradingservices.com <strong>Registered Office: </strong>9856 North Street, North West London, NW12 5IA
+              <strong>Polar Trading Services LTD</strong> <strong>Email: </strong>info@polartradingservices.com <strong>Website: </strong>www.polartradingservices.com <strong>Registered Office: </strong>189 Wulfstan Street London, W120AB, United Kingdom
             </p>
             <p className={styles.copyright}>
               <strong>© 2025 Polar Trading Services LTD. All rights reserved.</strong>
