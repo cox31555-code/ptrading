@@ -42,8 +42,9 @@
 border: 0.4px solid #FFF;
   border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   position: relative;
+  flex-shrink: 0;
 }
 
 .image {
