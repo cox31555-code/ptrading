@@ -343,7 +343,7 @@ export default function ForexCourseDetail({ courseData }) {
             <div className={styles.detailHeader}>
               <div className={styles.blueEllipseEffectRight}></div>
               <img
-                src="/forexcourse.png"
+                src={course.image || "/forexcourse.png"}
                 alt={course.title}
                 className={styles.detailImage}
               />
