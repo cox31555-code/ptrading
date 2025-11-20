@@ -56,14 +56,12 @@
 .courses {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
   padding: 0 8%;
   transform: translateY(-40px);
-  justify-content: start;
-  align-items: start;
+  align-items: center;
 }
 
 .filterContainer {
