@@ -99,16 +99,14 @@
   color: #00d4fe;
   font: inherit;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  padding: 4px 8px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  padding: 0;
+  transition: all 0.2s ease;
 }
 
 .chevron:hover {
-  background: rgba(0, 212, 254, 0.1);
-  transform: translateY(-2px);
+  opacity: 0.8;
 }
 
 .priceLabelsRow {
