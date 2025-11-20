@@ -124,6 +124,29 @@ export default function ForexPage({
         <span className={styles["white-ellipse-forex"]}></span>
         <span className={styles["blue-ellipse-forex"]}></span>
 
+        {topRatedCourses.length > 0 && (
+          <div className={styles.recommendedSection}>
+            <h2 className={styles.recommendedTitle}>Recommended For You</h2>
+            <p className={styles.recommendedSubtitle}>Top rated courses by our community</p>
+            <div className={styles.recommendedGrid}>
+              {topRatedCourses.map((course) => (
+                <CourseCard
+                  key={course._id}
+                  data={course}
+                  className={styles.recommendedCard}
+                  imageWrapperClass={styles.recommendedImageWrapper}
+                  titleClass={styles.recommendedCardTitle}
+                  contentClass={styles.recommendedCardContent}
+                  buttonsRowClass={styles.recommendedButtonsRow}
+                  viewMoreBtnClass={styles.recommendedViewMoreBtn}
+                  quickBuyBtnClass={styles.recommendedQuickBuyBtn}
+                  onViewMore={() => router.push(`/courses/${course._id}`)}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className={styles.searchFilterContainer}>
           <div className={styles.searchBox}>
             <input
