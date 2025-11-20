@@ -359,19 +359,36 @@ export default function ForexCourseDetail({ courseData }) {
                   <div className={styles.tipSection}>
                     <h4 className={styles.sectionSubtitle}>Add a Tip (Optional)</h4>
                     <div className={styles.tipButtons}>
-                      {[0, 5, 10, 15, 20].map((percentage) => (
+                      {[1, 2, 3, 4, 5].map((percentage) => (
                         <button
                           key={percentage}
                           className={`${styles.tipButton} ${
-                            tipPercentage === percentage ? styles.tipButtonActive : ""
+                            tipPercentage === percentage && !customTip ? styles.tipButtonActive : ""
                           }`}
-                          onClick={() => setTipPercentage(percentage)}
+                          onClick={() => {
+                            setTipPercentage(percentage);
+                            setCustomTip("");
+                          }}
                         >
-                          {percentage === 0 ? "No tip" : `${percentage}%`}
+                          {percentage}%
                         </button>
                       ))}
                     </div>
-                    {tipPercentage > 0 && (
+                    <div className={styles.customTipGroup}>
+                      <input
+                        type="number"
+                        className={styles.customTipInput}
+                        placeholder="Custom %"
+                        min="0"
+                        max="100"
+                        value={customTip}
+                        onChange={(e) => {
+                          setCustomTip(e.target.value);
+                          setTipPercentage(0);
+                        }}
+                      />
+                    </div>
+                    {calculateFinalPrice().tipAmount > 0 && (
                       <p className={styles.tipAmount}>
                         Tip: £{(calculateFinalPrice().tipAmount).toFixed(2)}
                       </p>
