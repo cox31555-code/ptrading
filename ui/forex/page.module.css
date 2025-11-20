@@ -426,12 +426,14 @@
 }
 
 .paginationContainer {
+  grid-column: 1 / -1;
+  grid-row: 2;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   width: 100%;
 }
 
