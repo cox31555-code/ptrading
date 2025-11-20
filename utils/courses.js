@@ -117,8 +117,13 @@ class CoursesAPI {
       const response = await axiosInstance.get(`/courses/${id}`);
       return response.data;
     } catch (error) {
-      console.error("Error fetching course:", error);
-      throw error;
+      console.error("Error fetching course from API, using mock data:", error);
+      // Fallback to mock data
+      const mockCourse = forexCoursesData.find(course => course._id === id || course._id === String(id));
+      if (mockCourse) {
+        return { data: mockCourse };
+      }
+      throw new Error("Course not found");
     }
   }
 
