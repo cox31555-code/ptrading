@@ -408,4 +408,4 @@ const forexCoursesData = [
   }
 ];
 
-module.exports = forexCoursesData;
+export default forexCoursesData;
