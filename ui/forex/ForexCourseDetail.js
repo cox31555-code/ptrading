@@ -376,7 +376,7 @@ export default function ForexCourseDetail({ courseData }) {
                   <div className={styles.tipSection}>
                     <h4 className={styles.sectionSubtitle}>Add a Tip (Optional)</h4>
                     <div className={styles.tipButtons}>
-                      {[1, 2, 3, 4, 5].map((percentage) => (
+                      {[0.1, 0.2, 0.3, 0.4, 0.5].map((percentage) => (
                         <button
                           key={percentage}
                           className={`${styles.tipButton} ${
