@@ -120,11 +120,11 @@ export default function Navbar({ variant = "default" }) {
                 CRYPTO
               </Link>
               <Link
-                href="/courses?category=bots"
+                href="/bots"
                 className={classes.option}
                 onClick={() => setMenuOpen(false)}
               >
-                BOTS
+                TRADING BOTS
               </Link>
               <Link
                 href="/courses?category=software"
