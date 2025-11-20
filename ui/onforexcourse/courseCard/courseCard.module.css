@@ -52,49 +52,27 @@ border: 0.4px solid #FFF;
   border-radius: 12px;
   display: block;
 }
-.tagsRow {
+.ratingContainer {
   display: flex;
-
-  justify-content: flex-start;
   align-items: center;
-  border-radius: 45.725px;
-  background: radial-gradient(70.71% 70.71% at 50% 50%, rgba(0, 0, 0, 0.15) 50.03%, rgba(1, 210, 253, 0.30) 100%), rgba(255, 255, 255, 0.10);
-  gap: 8px;
-  position: relative;
-  border: none;
- width:fit-content;
-}
-.tagsRow::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 45.725px;
-  padding: 0.9px; 
-  background: linear-gradient(
-    to bottom,
-    #00D4FE,
-    rgba(0, 212, 254, 0.4) 50%,
-    rgba(0, 212, 254, 0.1) 90%,
-    rgba(0, 212, 254, 0) 100%
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+  gap: 6px;
+  margin-bottom: 8px;
 }
 
+.star {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
+}
 
-.tag {
-    padding: 5.811px 19.786px 5.189px 19.214px;
-
- color: #FFF;
-font-family: Lato;
-font-size: 16px;
-font-weight: 700;
-line-height: 17.917px; /* 111.979% */
-
+.reviewCount {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: Lato;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  margin-left: 4px;
 }
 
 .priceSection {
