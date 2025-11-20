@@ -233,7 +233,7 @@ export default function ForexCourseDetail({ courseData }) {
               </div>
               <div>
                 <img
-                  src="/forexcourse.png"
+                  src={course.image || "/forexcourse.png"}
                   alt={course.title}
                   className={styles.detailImage}
                 />
