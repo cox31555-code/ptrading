@@ -60,18 +60,19 @@ const Footer = () => {
           <h4 className={classes["title"]}>Quick Links</h4>
           <div className={classes["optionsThird"]}>
             {[
-              "About Polar Trading Services",
-              "Contact Us",
-              "Home",
-              "Privacy Policy",
-              "Terms & Conditions",
-            ].map((item, index) => (
+              { label: "Home", href: "/" },
+              { label: "About Polar Trading Services", href: "/" },
+              { label: "Contact Us", href: "/contact-us" },
+              { label: "Privacy Policy", href: "/privacy-policy" },
+              { label: "Terms & Conditions", href: "/tandc" },
+              { label: "Refund Policy", href: "/refund-policy" },
+            ].map((link, index) => (
               <Link
                 key={index}
-                href="/"
+                href={link.href}
                 className={classes.footerOptionSecondary}
               >
-                {item}
+                {link.label}
               </Link>
             ))}
           </div>
