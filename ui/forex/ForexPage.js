@@ -81,9 +81,41 @@ export default function ForexPage({
         <span className={styles["white-ellipse-forex"]}></span>
         <span className={styles["blue-ellipse-forex"]}></span>
 
+        <div className={styles.searchFilterContainer}>
+          <div className={styles.searchBox}>
+            <input
+              type="text"
+              className={styles.searchInput}
+              placeholder="Search courses by title or description..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+          <div className={styles.priceFilterContainer}>
+            <span className={styles.priceFilterLabel}>Price Filter</span>
+            <div className={styles.priceFilterInputs}>
+              <input
+                type="number"
+                className={styles.priceInput}
+                placeholder="Min"
+                value={filterPriceFrom}
+                onChange={(e) => setFilterPriceFrom(e.target.value)}
+              />
+              <span className={styles.priceInputSeparator}>-</span>
+              <input
+                type="number"
+                className={styles.priceInput}
+                placeholder="Max"
+                value={filterPriceTo}
+                onChange={(e) => setFilterPriceTo(e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
+
         <div className={styles.cardGrid}>
-          {courses.length > 0 ? (
-            courses.map((course) => (
+          {filteredCourses.length > 0 ? (
+            filteredCourses.map((course) => (
               <CourseCard
                 key={course._id}
                 data={course}
