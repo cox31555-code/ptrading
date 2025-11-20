@@ -235,6 +235,81 @@ export default function ForexCourseDetail({ courseData }) {
                 <div className={styles.detailSectionLine}></div>
                 <div className={styles.detailDesc}>{course.details}</div>
               </div>
+
+              <div className={styles.purchaseSection}>
+                <div className={styles.tipSection}>
+                  <h4 className={styles.sectionSubtitle}>Add a Tip (Optional)</h4>
+                  <div className={styles.tipButtons}>
+                    {[0, 5, 10, 15, 20].map((percentage) => (
+                      <button
+                        key={percentage}
+                        className={`${styles.tipButton} ${
+                          tipPercentage === percentage ? styles.tipButtonActive : ""
+                        }`}
+                        onClick={() => setTipPercentage(percentage)}
+                      >
+                        {percentage === 0 ? "No tip" : `${percentage}%`}
+                      </button>
+                    ))}
+                  </div>
+                  {tipPercentage > 0 && (
+                    <p className={styles.tipAmount}>
+                      Tip: £{(calculateFinalPrice().tipAmount).toFixed(2)}
+                    </p>
+                  )}
+                </div>
+
+                <div className={styles.promoSection}>
+                  <h4 className={styles.sectionSubtitle}>Have a Promo Code?</h4>
+                  <div className={styles.promoInputGroup}>
+                    <input
+                      type="text"
+                      className={styles.promoInput}
+                      placeholder="Enter promo code"
+                      value={promoCode}
+                      onChange={(e) => {
+                        setPromoCode(e.target.value);
+                        setPromoDiscount(0);
+                      }}
+                    />
+                    <button
+                      className={styles.promoButton}
+                      onClick={handleApplyPromoCode}
+                    >
+                      Apply
+                    </button>
+                  </div>
+                  {promoDiscount > 0 && (
+                    <p className={styles.promoApplied}>
+                      ✓ Promo code applied: {promoDiscount}% off
+                    </p>
+                  )}
+                </div>
+
+                <div className={styles.priceBreakdown}>
+                  <div className={styles.priceRow}>
+                    <span>Subtotal</span>
+                    <span>£{calculateFinalPrice().subtotal.toFixed(2)}</span>
+                  </div>
+                  {promoDiscount > 0 && (
+                    <div className={styles.priceRow}>
+                      <span>Promo Discount ({promoDiscount}%)</span>
+                      <span>-£{calculateFinalPrice().promoDiscount.toFixed(2)}</span>
+                    </div>
+                  )}
+                  {tipPercentage > 0 && (
+                    <div className={styles.priceRow}>
+                      <span>Tip ({tipPercentage}%)</span>
+                      <span>+£{calculateFinalPrice().tipAmount.toFixed(2)}</span>
+                    </div>
+                  )}
+                  <div className={styles.priceRowTotal}>
+                    <span>Total</span>
+                    <span>£{calculateFinalPrice().total.toFixed(2)}</span>
+                  </div>
+                </div>
+              </div>
+
               <div>
                 <Button className={styles.detailBuyBtn}>Buy Now</Button>
               </div>
