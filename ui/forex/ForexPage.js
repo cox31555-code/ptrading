@@ -81,10 +81,7 @@ export default function ForexPage({
           ) : (
             <div className={styles.noCourses}>
               <h3>No courses found</h3>
-              <p>Try adjusting your filters or search criteria.</p>
-              <button onClick={handleViewAll} className={styles.viewAllBtn}>
-                View All Courses
-              </button>
+              <p>Try adjusting your search criteria.</p>
             </div>
           )}
         </div>
