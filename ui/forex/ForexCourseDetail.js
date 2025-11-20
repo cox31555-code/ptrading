@@ -69,6 +69,61 @@ export default function ForexCourseDetail({ courseData }) {
     return stars;
   };
 
+  // Generate random name based on index
+  const getRandomName = (index) => {
+    const firstNames = [
+      "James",
+      "Sarah",
+      "Michael",
+      "Emma",
+      "David",
+      "Olivia",
+      "Robert",
+      "Sophia",
+      "John",
+      "Ava",
+      "William",
+      "Isabella",
+      "Richard",
+      "Mia",
+      "Joseph",
+      "Charlotte",
+      "Thomas",
+      "Amelia",
+      "Christopher",
+      "Harper",
+    ];
+
+    const lastNames = [
+      "Smith",
+      "Johnson",
+      "Williams",
+      "Brown",
+      "Jones",
+      "Garcia",
+      "Miller",
+      "Davis",
+      "Rodriguez",
+      "Martinez",
+      "Hernandez",
+      "Lopez",
+      "Gonzalez",
+      "Wilson",
+      "Anderson",
+      "Thomas",
+      "Taylor",
+      "Moore",
+      "Jackson",
+      "Martin",
+    ];
+
+    return (
+      firstNames[index % firstNames.length] +
+      " " +
+      lastNames[index % lastNames.length]
+    );
+  };
+
   // Handle review submission
   const handleSubmitReview = async (e) => {
     e.preventDefault();
