@@ -12,12 +12,69 @@ import Work from "../landing-page/worktogather/Work";
 import TopBar from "../landing-page/courses/TopBar";
 import Courses from "../landing-page/courses/Courses";
 import ChooseCourse from "../landing-page/chooseCourse/ChooseCourse";
+import CoursesAPI from "@/utils/courses";
+
 export default function Home({ courses }) {
   const [courseList, setCourseList] = useState([]);
+
   useEffect(() => {
-    fetch("/dummy/coursesData.json")
-      .then((res) => res.json())
-      .then((data) => setCourseList(data));
+    const loadRandomCourses = async () => {
+      try {
+        // Fetch all courses from all categories
+        const forexResponse = await CoursesAPI.getAllCourses({
+          category: "Forex",
+          limit: 100,
+          page: 1,
+        });
+        const stocksResponse = await CoursesAPI.getAllCourses({
+          category: "Stocks",
+          limit: 100,
+          page: 1,
+        });
+        const botsResponse = await CoursesAPI.getAllCourses({
+          category: "Bots",
+          limit: 100,
+          page: 1,
+        });
+        const indicesResponse = await CoursesAPI.getAllCourses({
+          category: "Indices",
+          limit: 100,
+          page: 1,
+        });
+
+        // Combine all courses
+        const allCourses = [
+          ...(forexResponse?.data?.data || []),
+          ...(stocksResponse?.data?.data || []),
+          ...(botsResponse?.data?.data || []),
+          ...(indicesResponse?.data?.data || []),
+        ];
+
+        // Shuffle and select random 8 courses
+        const shuffled = allCourses
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 8);
+
+        // Transform to match expected format
+        const formatted = shuffled.map((course) => ({
+          _id: course._id,
+          image: course.image,
+          title: course.title,
+          desc: course.details || course.description,
+        }));
+
+        setCourseList(formatted);
+      } catch (error) {
+        console.error("Error loading courses:", error);
+        // Fallback to dummy data
+        fetch("/dummy/coursesData.json")
+          .then((res) => res.json())
+          .then((data) => setCourseList(data))
+          .catch((err) => console.error("Error loading dummy data:", err));
+      }
+    };
+
+    loadRandomCourses();
   }, []);
 
   return (
