@@ -780,7 +780,45 @@
   font-family: Lato;
   font-size: 14px;
   font-weight: 600;
-  margin: 8px 0 0 0;
+  margin: 12px 0 0 0;
+}
+
+.customTipGroup {
+  display: flex;
+}
+
+.customTipInput {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid rgba(0, 212, 254, 0.4);
+  border-radius: 8px;
+  background: rgba(0, 212, 254, 0.05);
+  color: #fff;
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  max-width: 120px;
+}
+
+.customTipInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.customTipInput:focus {
+  outline: none;
+  border-color: #00d4fe;
+  background: rgba(0, 212, 254, 0.1);
+}
+
+.customTipInput::-webkit-outer-spin-button,
+.customTipInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.customTipInput[type="number"] {
+  -moz-appearance: textfield;
 }
 
 /* Promo Section */
