@@ -239,8 +239,6 @@
 }
 
 .cardGrid {
-  grid-column: 2;
-  grid-row: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
