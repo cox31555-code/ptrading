@@ -381,7 +381,6 @@
 
   /* -------- Courses Section -------- */
   .courses {
-    grid-template-columns: 1fr;
     gap: 24px;
     padding: 0 18px;
     align-items: center;
