@@ -39,9 +39,10 @@ export default function ForexPage({
     return Math.round(totalRating / course.reviews.length);
   };
 
-  // Get top 3 highest rated courses
+  // Get top 3 highest rated courses from ALL courses (not just current page)
   const getTopRatedCourses = () => {
-    return courses
+    const coursesToRank = allCourses.length > 0 ? allCourses : courses;
+    return coursesToRank
       .sort((a, b) => {
         const ratingA = getAverageRating(a);
         const ratingB = getAverageRating(b);
