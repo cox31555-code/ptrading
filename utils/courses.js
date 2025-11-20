@@ -78,17 +78,26 @@ class CoursesAPI {
 
   static async getCourseById(id) {
     // Use mock data as primary source
-    const mockCourse = forexCoursesData.find(course => course._id === id || course._id === String(id));
+    console.log("Looking for course with ID:", id, "Type:", typeof id);
+    console.log("Available mock courses:", forexCoursesData.map(c => ({ _id: c._id, title: c.title })));
+
+    const mockCourse = forexCoursesData.find(course => {
+      return String(course._id) === String(id);
+    });
+
     if (mockCourse) {
+      console.log("Found mock course:", mockCourse.title);
       return { data: mockCourse };
     }
+
+    console.log("Course not found in mock data, attempting API");
 
     // Fallback to API if course not found in mock data
     try {
       const response = await axiosInstance.get(`/courses/${id}`);
       return response.data;
     } catch (error) {
-      console.error("Error fetching course from API and not found in mock data:", error);
+      console.error("Error fetching course from API:", error);
       throw new Error("Course not found");
     }
   }
