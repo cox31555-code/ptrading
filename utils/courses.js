@@ -59,8 +59,7 @@ class CoursesAPI {
 
   static async getCoursesFromMockData(params = {}) {
     try {
-      const response = await fetch("/dummy/forexCourses.json");
-      const mockCourses = await response.json();
+      const mockCourses = forexCoursesData;
 
       // Apply filters
       let filtered = mockCourses;
