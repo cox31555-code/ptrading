@@ -82,8 +82,9 @@ border: 0.4px solid #FFF;
   font-size: 24px;
   font-weight: 700;
   line-height: 28px;
-  margin: 6px 0 auto 0;
+  margin: 6px 0 8px 0;
   text-transform: capitalize;
+  flex-grow: 0;
 }
 
 .title {
