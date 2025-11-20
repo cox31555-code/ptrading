@@ -279,7 +279,7 @@ export default function ForexCourseDetail({ courseData }) {
                           {renderStars(review.rating)}
                         </div>
                         <span className={styles.reviewUser}>
-                          {review.userName || "Anonymous"}
+                          {review.userName || getRandomName(index)}
                         </span>
                       </div>
                       <p className={styles.reviewComment}>{review.comment}</p>
