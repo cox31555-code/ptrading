@@ -8,6 +8,7 @@ import Work from "../landing-page/worktogather/Work";
 
 export default function ForexPage({
   courses = [],
+  allCourses = [],
   category,
   priceFrom,
   priceTo,
