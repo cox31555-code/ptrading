@@ -28,6 +28,26 @@ export default function ForexPage({
     setIsClient(true);
   }, []);
 
+  // Format price to GBP currency
+  const formatGBP = (value) => {
+    if (!value) return "";
+    const num = parseFloat(value);
+    if (isNaN(num)) return "";
+    return `£${num.toFixed(2)}`;
+  };
+
+  // Handle price input with validation
+  const handlePriceInput = (value, setter) => {
+    if (value === "") {
+      setter("");
+      return;
+    }
+    const num = parseFloat(value);
+    if (!isNaN(num) && num >= 0) {
+      setter(value);
+    }
+  };
+
   // Filter courses based on search and price
   const filteredCourses = courses.filter((course) => {
     const matchesSearch =
