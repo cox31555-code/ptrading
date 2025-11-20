@@ -18,63 +18,12 @@ export default function ForexPage({
   const router = useRouter();
   const currentSearchParams = useSearchParams();
 
-  // Initialize state with props
-  const [rangeMax, setRangeMax] = useState(priceTo || priceRange.max);
-  const [sliderValue, setSliderValue] = useState(priceFrom || priceRange.min);
-  const [maxPrice, setMaxPrice] = useState(priceTo || priceRange.max);
+  // Ensure this component only hydrates on client
   const [isClient, setIsClient] = useState(false);
 
-  // Update state when props change
-  useEffect(() => {
-    setSliderValue(priceFrom || priceRange.min);
-    setMaxPrice(priceTo || priceRange.max);
-    setRangeMax(priceTo || priceRange.max);
-  }, [priceFrom, priceTo, priceRange]);
-
-  // Ensure this component only hydrates on client
   useEffect(() => {
     setIsClient(true);
   }, []);
-
-  const handleChevronClick = () => {
-    const newMax = rangeMax + 100;
-    setRangeMax(newMax);
-    setMaxPrice(newMax);
-  };
-
-  const handleSliderChange = (value) => {
-    setSliderValue(value);
-    console.log(value);
-    updatePriceParams(value, maxPrice);
-  };
-
-  const handleMaxPriceChange = (value) => {
-    setMaxPrice(value);
-    updatePriceParams(sliderValue, value);
-  };
-
-  // Update URL params with price range
-  const updatePriceParams = (newPriceFrom, newPriceTo) => {
-    const params = new URLSearchParams(currentSearchParams);
-
-    // Set price range params
-    if (newPriceFrom > priceRange.min) {
-      params.set("priceFrom", newPriceFrom.toString());
-    } else {
-      params.delete("priceFrom");
-    }
-
-    if (newPriceTo < priceRange.max) {
-      params.set("priceTo", newPriceTo.toString());
-    } else {
-      params.delete("priceTo");
-    }
-
-    // Reset to first page when filtering
-    params.delete("page");
-
-    router.push(`/courses?${params.toString()}`);
-  };
 
   // Handle view all - clear all params
   const handleViewAll = () => {
