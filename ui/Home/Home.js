@@ -61,6 +61,7 @@ export default function Home({ courses }) {
           image: course.image,
           title: course.title,
           desc: course.details || course.description,
+          category: course.category,
         }));
 
         setCourseList(formatted);
