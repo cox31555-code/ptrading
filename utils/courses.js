@@ -166,8 +166,7 @@ class CoursesAPI {
       console.error("Error fetching price range from API, using mock data:", error);
       // Fallback to mock data
       try {
-        const mockResponse = await fetch("/dummy/forexCourses.json");
-        const mockCourses = await mockResponse.json();
+        const mockCourses = forexCoursesData;
 
         if (mockCourses.length === 0) {
           return { min: 0, max: 1000 };
