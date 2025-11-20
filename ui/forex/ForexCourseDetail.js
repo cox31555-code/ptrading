@@ -322,9 +322,9 @@ export default function ForexCourseDetail({ courseData }) {
                       <span>-£{calculateFinalPrice().promoDiscount.toFixed(2)}</span>
                     </div>
                   )}
-                  {tipPercentage > 0 && (
+                  {calculateFinalPrice().tipPercentage > 0 && (
                     <div className={styles.priceRow}>
-                      <span>Tip ({tipPercentage}%)</span>
+                      <span>Tip ({calculateFinalPrice().tipPercentage}%)</span>
                       <span>+£{calculateFinalPrice().tipAmount.toFixed(2)}</span>
                     </div>
                   )}
