@@ -87,7 +87,12 @@ const Courses = ({
                 <div className={classes.cardContent}>
                   <h3 className={classes.title}>{course.title}</h3>
                   <p className={classes.desc}>{course.desc}</p>
-                  <button className={classes.viewMore}>View More</button>
+                  <button
+                    className={classes.viewMore}
+                    onClick={() => handleViewMore(course._id, course.category)}
+                  >
+                    View More
+                  </button>
                 </div>
               </div>
             ))}
