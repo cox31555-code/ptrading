@@ -12,6 +12,8 @@ export default function ForexPage({
   priceFrom,
   priceTo,
   priceRange = { min: 0, max: 1000 },
+  currentPage = 1,
+  totalPages = 1,
 }) {
   const router = useRouter();
   const currentSearchParams = useSearchParams();
