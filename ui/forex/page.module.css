@@ -86,13 +86,10 @@
   align-items: center;
   color: #00d4fe;
   font-family: "Nunito Sans";
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  line-height: 24px;
-  margin-top: 24px;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  line-height: 20px;
+  margin-bottom: 20px;
 }
 
 .chevron {
