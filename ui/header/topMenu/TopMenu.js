@@ -19,26 +19,36 @@ const TopMenu = () => {
   useEffect(() => {
     const fetchSocialLinks = async () => {
       try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/social`,
-          {
-            method: "GET",
-            credentials: "include",
-          }
-        );
+        const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/social`;
+        console.log("Fetching social links from:", apiUrl);
+
+        const response = await fetch(apiUrl, {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
         if (!response.ok) {
-          throw new Error("Failed to fetch social links");
+          throw new Error(
+            `HTTP Error: ${response.status} ${response.statusText}`
+          );
         }
 
         const data = await response.json();
-        console.log("data", data);
-        // Assuming the first social media set in the response
-        if (data) {
-          console.log("data", data?.data?.data[0]);
-          setSocialLinks(data?.data?.data[0] || {});
+        console.log("Social links data:", data);
+
+        if (data?.data?.data?.[0]) {
+          setSocialLinks(data.data.data[0]);
         }
       } catch (error) {
-        console.error("Error fetching social links:", error);
+        console.error("Error fetching social links:", {
+          message: error.message,
+          error,
+          apiUrl: process.env.NEXT_PUBLIC_API_URL,
+        });
+        // Silently fail - component will display with empty social links
       }
     };
 
