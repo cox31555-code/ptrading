@@ -344,15 +344,23 @@ padding-right: 0px;
   }
   
 .title {
-
 font-size: 20px;
-line-height: 30px; 
+line-height: 30px;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
 }
 
 .desc {
 font-size: 16px;
 line-height: 26px; /* 150% */
-
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
 }
 .dotsContainer {
   gap: 12px;
