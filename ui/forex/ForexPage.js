@@ -20,10 +20,29 @@ export default function ForexPage({
 
   // Ensure this component only hydrates on client
   const [isClient, setIsClient] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterPriceFrom, setFilterPriceFrom] = useState("");
+  const [filterPriceTo, setFilterPriceTo] = useState("");
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  // Filter courses based on search and price
+  const filteredCourses = courses.filter((course) => {
+    const matchesSearch =
+      !searchTerm ||
+      course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      course.details.toLowerCase().includes(searchTerm.toLowerCase());
+
+    const coursePrice = parseFloat(course.price);
+    const minPrice = filterPriceFrom ? parseFloat(filterPriceFrom) : 0;
+    const maxPrice = filterPriceTo ? parseFloat(filterPriceTo) : Infinity;
+
+    const matchesPrice = coursePrice >= minPrice && coursePrice <= maxPrice;
+
+    return matchesSearch && matchesPrice;
+  });
 
   // Handle pagination
   const handlePageChange = (pageNumber) => {
