@@ -150,12 +150,19 @@ export default function ForexCourseDetail({ courseData }) {
   const calculateFinalPrice = () => {
     let finalPrice = discountedPrice;
     finalPrice -= (finalPrice * promoDiscount) / 100;
-    const tipAmount = (finalPrice * tipPercentage) / 100;
+
+    let effectiveTipPercentage = tipPercentage;
+    if (customTip) {
+      effectiveTipPercentage = parseFloat(customTip) || 0;
+    }
+
+    const tipAmount = (finalPrice * effectiveTipPercentage) / 100;
     return {
       subtotal: discountedPrice,
       promoDiscount: (discountedPrice * promoDiscount) / 100,
       afterPromo: finalPrice,
       tipAmount: tipAmount,
+      tipPercentage: effectiveTipPercentage,
       total: finalPrice + tipAmount,
     };
   };
