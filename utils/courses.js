@@ -16,45 +16,9 @@ const axiosInstance = axios.create({
 
 class CoursesAPI {
   static async getAllCourses(params = {}) {
-    try {
-      // Try fetching from API first
-      const queryParams = {
-        page: params.page || 1,
-        limit: params.limit || 10,
-        sort: params.sort || "-createdAt",
-        ...params,
-      };
-
-      // Add category filter if provided
-      if (params.category) {
-        queryParams.category = params.category;
-      }
-
-      // Add price range filter if provided
-      if (params.priceFrom !== undefined) {
-        queryParams.priceFrom = params.priceFrom;
-      }
-      if (params.priceTo !== undefined) {
-        queryParams.priceTo = params.priceTo;
-      }
-
-      // Add search filter if provided
-      if (params.search) {
-        queryParams.search = params.search;
-      }
-
-      console.log("Fetching courses with params:", queryParams);
-
-      const response = await axiosInstance.get("/courses", {
-        params: queryParams,
-      });
-
-      return response.data;
-    } catch (error) {
-      console.error("Error fetching courses from API, loading from mock data:", error);
-      // Fallback to mock data from JSON file
-      return this.getCoursesFromMockData(params);
-    }
+    // Use mock data as primary source
+    console.log("Loading courses from mock data with params:", params);
+    return this.getCoursesFromMockData(params);
   }
 
   static async getCoursesFromMockData(params = {}) {
