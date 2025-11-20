@@ -174,6 +174,22 @@ export default function ForexPage({
             </div>
           )}
         </div>
+
+        {totalPages > 1 && (
+          <div className={styles.paginationContainer}>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                className={`${styles.pageButton} ${
+                  page === currentPage ? styles.activePageButton : ""
+                }`}
+                onClick={() => handlePageChange(page)}
+              >
+                {page}
+              </button>
+            ))}
+          </div>
+        )}
       </section>
 
       <Work className="forexWorkWrapper" />
