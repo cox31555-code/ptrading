@@ -228,6 +228,13 @@
   font-weight: 400;
   line-height: 17.7px;
   cursor: pointer;
+  border: none;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.detailTab:hover {
+  color: #00d4fe;
 }
 
 .detailBodyText {
