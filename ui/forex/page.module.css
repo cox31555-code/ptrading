@@ -417,3 +417,68 @@
     transform: translateY(-320px);
   }
 }
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.pageButton {
+  min-width: 44px;
+  height: 44px;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 212, 254, 0.53);
+  border-radius: 8px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 212, 254, 0.02) 0%,
+    rgba(64, 221, 218, 0.02) 100%
+  );
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Nunito Sans";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pageButton:hover {
+  border-color: #00d4fe;
+  color: #00d4fe;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 212, 254, 0.1) 0%,
+    rgba(64, 221, 218, 0.05) 100%
+  );
+}
+
+.activePageButton {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  color: #00d4fe;
+  border-color: #00d4fe;
+}
+
+@media (max-width: 850px) {
+  .paginationContainer {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    gap: 8px;
+  }
+
+  .pageButton {
+    min-width: 40px;
+    height: 40px;
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
