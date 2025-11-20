@@ -10,7 +10,18 @@ const page = async ({ searchParams }) => {
   const search = params?.search || "";
   const page = params?.page ? Number(params.page) : 1;
 
-  // Fetch courses with all parameters
+  // Fetch all courses (unpaginated) for the "Recommended" section
+  let allCoursesData = null;
+  try {
+    allCoursesData = await CoursesAPI.getAllCourses({
+      ...(category && { category }),
+    });
+  } catch (error) {
+    console.error("Error fetching all courses:", error);
+    allCoursesData = { data: { data: [] } };
+  }
+
+  // Fetch courses with pagination for the main listing
   let coursesData = null;
   try {
     const apiParams = {
