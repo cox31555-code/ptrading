@@ -106,15 +106,16 @@ margin: 6px 0px 4px 0px;
 }
 .viewMoreBtn,
 .quickBuyBtn {
-  min-height: 41px !important;
-  height: 41px !important;
-  padding: 12px 24px !important;
+  min-height: 38px !important;
+  height: 38px !important;
+  padding: 10px 20px !important;
   border-radius: 52.257px !important;
-  font-size: 16px;
+  font-size: 14px;
   font-family: Lato;
   font-weight: 500;
-  max-width: 258.626px;
-  gap: 10px;
+  max-width: 100%;
+  gap: 8px;
+  flex: 1;
 }
 
 .viewMoreBtn:hover {
