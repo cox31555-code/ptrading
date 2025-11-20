@@ -56,8 +56,8 @@ border: 0.4px solid #FFF;
 .ratingContainer {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 8px;
+  gap: 4px;
+  margin-bottom: 4px;
 }
 
 .star {
