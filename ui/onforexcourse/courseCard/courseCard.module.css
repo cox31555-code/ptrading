@@ -59,6 +59,7 @@ border: 0.4px solid #FFF;
   align-items: center;
   gap: 4px;
   margin-bottom: 4px;
+  flex-shrink: 0;
 }
 
 .star {
