@@ -17,42 +17,42 @@ const TopMenu = () => {
   });
 
   useEffect(() => {
-    const fetchSocialLinks = async () => {
-      try {
-        const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/social`;
-        console.log("Fetching social links from:", apiUrl);
-
-        const response = await fetch(apiUrl, {
-          method: "GET",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error(
-            `HTTP Error: ${response.status} ${response.statusText}`
-          );
-        }
-
-        const data = await response.json();
-        console.log("Social links data:", data);
-
-        if (data?.data?.data?.[0]) {
-          setSocialLinks(data.data.data[0]);
-        }
-      } catch (error) {
-        console.error("Error fetching social links:", {
-          message: error.message,
-          error,
-          apiUrl: process.env.NEXT_PUBLIC_API_URL,
-        });
-        // Silently fail - component will display with empty social links
-      }
+    // Using default social links - update these with your actual social media URLs
+    const defaultSocialLinks = {
+      facebook: "https://facebook.com",
+      twitter: "https://twitter.com",
+      instagram: "https://instagram.com",
+      telegram: "https://telegram.org",
     };
 
-    fetchSocialLinks();
+    setSocialLinks(defaultSocialLinks);
+
+    // Optional: Uncomment below to fetch from API if endpoint becomes available
+    // const fetchSocialLinks = async () => {
+    //   try {
+    //     const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/social`;
+    //     const response = await fetch(apiUrl, {
+    //       method: "GET",
+    //       credentials: "include",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //     });
+
+    //     if (!response.ok) {
+    //       throw new Error(`HTTP Error: ${response.status}`);
+    //     }
+
+    //     const data = await response.json();
+    //     if (data?.data?.data?.[0]) {
+    //       setSocialLinks(data.data.data[0]);
+    //     }
+    //   } catch (error) {
+    //     console.warn("Could not fetch social links from API, using defaults");
+    //   }
+    // };
+
+    // fetchSocialLinks();
   }, []);
 
   const handleSocialClick = (url) => {
