@@ -1,5 +1,5 @@
 import axios from "axios";
-import forexCoursesData from "../public/dummy/forexCourses.json";
+import forexCoursesData from "./forexCoursesData";
 
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api";
