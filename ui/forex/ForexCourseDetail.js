@@ -189,10 +189,113 @@ export default function ForexCourseDetail({ courseData }) {
         <div className={styles.detailBody}>
           <h2 className={styles.detailAboutTitle}>About Course</h2>
           <div className={styles.detailTabs}>
-            <button className={styles.detailTabActive}>Description</button>
-            <span className={styles.detailTabReview}>Review</span>
+            <button
+              className={
+                activeTab === "description"
+                  ? styles.detailTabActive
+                  : styles.detailTab
+              }
+              onClick={() => setActiveTab("description")}
+            >
+              Description
+            </button>
+            <button
+              className={
+                activeTab === "reviews"
+                  ? styles.detailTabActive
+                  : styles.detailTab
+              }
+              onClick={() => setActiveTab("reviews")}
+            >
+              Reviews
+            </button>
           </div>
-          <div className={styles.detailBodyText}>{course.description}</div>
+
+          {activeTab === "description" ? (
+            <div className={styles.detailBodyText}>{course.description}</div>
+          ) : (
+            <div className={styles.reviewsSection}>
+              <div className={styles.reviewsList}>
+                {course.reviews && course.reviews.length > 0 ? (
+                  course.reviews.map((review, index) => (
+                    <div key={index} className={styles.reviewCard}>
+                      <div className={styles.reviewHeader}>
+                        <div className={styles.reviewRating}>
+                          {renderStars(review.rating)}
+                        </div>
+                        <span className={styles.reviewUser}>
+                          {review.userName || "Anonymous"}
+                        </span>
+                      </div>
+                      <p className={styles.reviewComment}>{review.comment}</p>
+                    </div>
+                  ))
+                ) : (
+                  <p className={styles.noReviews}>
+                    No reviews yet. Be the first to review!
+                  </p>
+                )}
+              </div>
+
+              <div className={styles.reviewFormSection}>
+                <h3 className={styles.reviewFormTitle}>Leave a Review</h3>
+                {isUserPaid ? (
+                  <form
+                    onSubmit={handleSubmitReview}
+                    className={styles.reviewForm}
+                  >
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Rating</label>
+                      <div className={styles.ratingSelector}>
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <button
+                            key={star}
+                            type="button"
+                            className={styles.starButton}
+                            onClick={() => setReviewRating(star)}
+                          >
+                            <img
+                              src={
+                                star <= reviewRating
+                                  ? "/svg/bluestar-single.svg"
+                                  : "/svg/whitestar-single.svg"
+                              }
+                              alt="star"
+                              className={styles.starIcon}
+                            />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Comment</label>
+                      <textarea
+                        className={styles.commentField}
+                        placeholder="Share your thoughts about this course..."
+                        value={reviewComment}
+                        onChange={(e) => setReviewComment(e.target.value)}
+                        rows="5"
+                        required
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      className={styles.submitButton}
+                      disabled={!reviewRating || !reviewComment}
+                    >
+                      Submit Review
+                    </button>
+                  </form>
+                ) : (
+                  <div className={styles.unpaidMessage}>
+                    <p>Buy this course to leave a review</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </div>
         <div className={styles.relatedCoursesMargin}>
           <OnForexCourseSection
