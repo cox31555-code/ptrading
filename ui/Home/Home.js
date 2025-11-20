@@ -100,7 +100,6 @@ export default function Home({ courses }) {
       <ChooseCourse />
       <OnForexCourseSection courseList={courses} />
       <Work />
-      <BlogSection />
     </div>
   );
 }
