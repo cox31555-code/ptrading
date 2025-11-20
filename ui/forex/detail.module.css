@@ -915,4 +915,54 @@
   .unpaidMessage p {
     font-size: 16px;
   }
+
+  .purchaseSection {
+    margin-top: 24px;
+    padding-top: 24px;
+    gap: 20px;
+  }
+
+  .sectionSubtitle {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .tipButtons {
+    gap: 8px;
+  }
+
+  .tipButton {
+    padding: 8px 14px;
+    font-size: 13px;
+    flex: 1;
+  }
+
+  .promoInputGroup {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .promoInput {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .promoButton {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .priceBreakdown {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .priceRow,
+  .priceRowTotal {
+    font-size: 13px;
+  }
+
+  .priceRowTotal {
+    font-size: 15px;
+  }
 }
