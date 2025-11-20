@@ -69,6 +69,22 @@ export default function ForexCourseDetail({ courseData }) {
     return stars;
   };
 
+  // Handle review submission
+  const handleSubmitReview = async (e) => {
+    e.preventDefault();
+    if (!isUserPaid) return;
+
+    // TODO: Submit review to API
+    console.log("Review submitted:", {
+      rating: reviewRating,
+      comment: reviewComment,
+      courseId: course._id,
+    });
+
+    setReviewRating(0);
+    setReviewComment("");
+  };
+
   if (!course)
     return (
       <div style={{ color: "#fff", textAlign: "center" }}>
