@@ -500,9 +500,13 @@
 
 @media (max-width: 850px) {
   .paginationContainer {
+    grid-column: 1;
+    grid-row: 3;
     margin-top: 32px;
     margin-bottom: 32px;
     gap: 8px;
+    flex-wrap: wrap;
+    padding: 0 15px;
   }
 
   .pageButton {
