@@ -448,12 +448,14 @@
   grid-column: 1 / -1;
   grid-row: 2;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 12px;
   margin-top: 20px;
   margin-bottom: 20px;
   width: 100%;
+  padding: 0 20px;
 }
 
 .pageButton {
