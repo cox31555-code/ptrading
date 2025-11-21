@@ -105,6 +105,22 @@ export default function ForexPage({
     );
   };
 
+  // Get category description
+  const getCategoryDescription = () => {
+    if (!category) {
+      return "Discover comprehensive trading education from beginner to expert level. Master forex, stocks, crypto, and automated trading strategies.";
+    }
+    const descriptions = {
+      forex: "Master global currency markets with expert-led courses covering trading strategies, technical analysis, and risk management. Start your forex trading journey today.",
+      stocks: "Learn stock trading and index investing from market fundamentals to advanced strategies. Build confidence trading individual stocks and major indices.",
+      crypto: "Explore cryptocurrency trading and blockchain technology. From Bitcoin basics to advanced DeFi strategies, master the digital asset revolution.",
+      bots: "Automate your trading with algorithmic strategies. Build, deploy, and optimize custom trading bots for consistent market performance.",
+      software: "Leverage cutting-edge trading platforms and tools. Professional software for advanced analysis, execution, and comprehensive portfolio management.",
+    };
+    const categoryKey = category.toLowerCase().replace(/[/_]/g, "");
+    return descriptions[categoryKey] || descriptions.forex;
+  };
+
   return (
     <>
       <section className={styles.hero}>
