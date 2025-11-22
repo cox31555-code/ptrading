@@ -35,10 +35,10 @@ export default function OnForexCourseSection({
     );
 
   return (
-    <section className={styles.section} suppressHydrationWarning>
+    <section className={styles.section}>
       {showBlueEllipse && <span className={styles.blueEllipse} />}
 
-      <div className={styles.topRow} suppressHydrationWarning>
+      <div className={styles.topRow}>
         <div className={styles.textBlock}>
           <p
             className={
@@ -51,8 +51,8 @@ export default function OnForexCourseSection({
           </p>
         </div>
 
-        {cardsPerView > 1 && (
-          <div className={styles.arrowsRow} style={{ visibility: isMounted ? 'visible' : 'hidden' }}>
+        {isMounted && cardsPerView > 1 && (
+          <div className={styles.arrowsRow}>
             <button
               className={styles.arrow}
               onClick={prev}
