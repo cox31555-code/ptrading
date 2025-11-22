@@ -36,10 +36,10 @@ export default function OnForexCourseSection({
     );
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} suppressHydrationWarning>
       {showBlueEllipse && <span className={styles.blueEllipse} />}
 
-      <div className={styles.topRow}>
+      <div className={styles.topRow} suppressHydrationWarning>
         <div className={styles.textBlock}>
           <p
             className={
@@ -52,7 +52,7 @@ export default function OnForexCourseSection({
           </p>
         </div>
 
-        {cardsPerView > 1 && (
+        {isMounted && cardsPerView > 1 && (
           <div className={styles.arrowsRow}>
             <button
               className={styles.arrow}
@@ -75,27 +75,40 @@ export default function OnForexCourseSection({
       {/* ---------- Cards---------- */}
       <div className={styles.sliderContainer}>
         <div className={styles.cardsRow}>
-          {courses.slice(current, current + cardsPerView).map((course, idx) => (
-            <CourseCard
-              key={course.id ?? current + idx}
-              data={course}
-              onViewMore={() => router.push(`/courses/${course._id}`)}
-              onQuickBuy={() => {}}
-            />
-          ))}
+          {isMounted ? (
+            courses.slice(current, current + cardsPerView).map((course, idx) => (
+              <CourseCard
+                key={course._id}
+                data={course}
+                onViewMore={() => router.push(`/courses/${course._id}`)}
+                onQuickBuy={() => {}}
+              />
+            ))
+          ) : (
+            courses.slice(0, 1).map((course, idx) => (
+              <CourseCard
+                key={course._id}
+                data={course}
+                onViewMore={() => router.push(`/courses/${course._id}`)}
+                onQuickBuy={() => {}}
+              />
+            ))
+          )}
         </div>
       </div>
 
       {/* -------- Dots ---------- */}
-      <div className={styles.dotsRow}>
-        {Array.from({ length: totalSlides }).map((_, idx) => (
-          <span
-            key={idx}
-            className={idx === currentSlide ? styles.activeDot : styles.dot}
-            onClick={() => goToSlide(idx)}
-          />
-        ))}
-      </div>
+      {isMounted && (
+        <div className={styles.dotsRow}>
+          {Array.from({ length: totalSlides }).map((_, idx) => (
+            <span
+              key={idx}
+              className={idx === currentSlide ? styles.activeDot : styles.dot}
+              onClick={() => goToSlide(idx)}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
