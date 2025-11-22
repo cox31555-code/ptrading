@@ -76,7 +76,7 @@ export default function OnForexCourseSection({
       {/* ---------- Cards---------- */}
       <div className={styles.sliderContainer}>
         <div className={styles.cardsRow}>
-          {courseList.slice(current, current + cardsPerView).map((course) => (
+          {courseList.slice(current, current + displayCardsPerView).map((course) => (
             <CourseCard
               key={course._id}
               data={course}
