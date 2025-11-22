@@ -74,25 +74,14 @@ export default function OnForexCourseSection({
       {/* ---------- Cards---------- */}
       <div className={styles.sliderContainer}>
         <div className={styles.cardsRow}>
-          {isMounted ? (
-            courses.slice(current, current + cardsPerView).map((course, idx) => (
-              <CourseCard
-                key={course._id}
-                data={course}
-                onViewMore={() => router.push(`/courses/${course._id}`)}
-                onQuickBuy={() => {}}
-              />
-            ))
-          ) : (
-            courses.slice(0, 1).map((course, idx) => (
-              <CourseCard
-                key={course._id}
-                data={course}
-                onViewMore={() => router.push(`/courses/${course._id}`)}
-                onQuickBuy={() => {}}
-              />
-            ))
-          )}
+          {courseList.slice(current, current + cardsPerView).map((course) => (
+            <CourseCard
+              key={course._id}
+              data={course}
+              onViewMore={() => router.push(`/courses/${course._id}`)}
+              onQuickBuy={() => {}}
+            />
+          ))}
         </div>
       </div>
 
