@@ -47,7 +47,7 @@ export default function CourseCard({
   const averageRating = getAverageRating();
 
   return (
-    <div className={className || styles.card}>
+    <div className={className || styles.card} suppressHydrationWarning>
       <div className={imageWrapperClass || styles.imageWrapper}>
         <img
           src={data?.image || "/forexcourse.png"}
