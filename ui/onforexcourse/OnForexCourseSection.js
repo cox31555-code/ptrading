@@ -10,9 +10,8 @@ export default function OnForexCourseSection({
   courseList = [],
 }) {
   const router = useRouter();
-  const [courses, setCourses] = useState(courseList);
   const [current, setCurrent] = useState(0);
-  const [cardsPerView, setCardsPerView] = useState(1);
+  const [cardsPerView, setCardsPerView] = useState(3);
   const [isMounted, setIsMounted] = useState(false);
 
   const calcCards = (w) => (w <= 1024 ? 1 : 3);
