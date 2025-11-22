@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import CourseCard from "./courseCard/CourseCard";
 import styles from "./onforexcourseSection.module.css";
 
@@ -8,6 +9,7 @@ export default function OnForexCourseSection({
   showBlueEllipse = true,
   courseList = [],
 }) {
+  const router = useRouter();
   const [courses, setCourses] = useState(courseList);
   console.log(courses);
   const [current, setCurrent] = useState(0);
@@ -85,7 +87,7 @@ export default function OnForexCourseSection({
             <CourseCard
               key={course.id ?? current + idx}
               data={course}
-              onViewMore={() => {}}
+              onViewMore={() => router.push(`/courses/${course._id}`)}
               onQuickBuy={() => {}}
             />
           ))}
