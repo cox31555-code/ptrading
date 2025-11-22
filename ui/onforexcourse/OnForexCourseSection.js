@@ -86,17 +86,15 @@ export default function OnForexCourseSection({
       </div>
 
       {/* -------- Dots ---------- */}
-      {isMounted && (
-        <div className={styles.dotsRow}>
-          {Array.from({ length: totalSlides }).map((_, idx) => (
-            <span
-              key={idx}
-              className={idx === currentSlide ? styles.activeDot : styles.dot}
-              onClick={() => goToSlide(idx)}
-            />
-          ))}
-        </div>
-      )}
+      <div className={styles.dotsRow} style={{ visibility: isMounted ? 'visible' : 'hidden' }}>
+        {Array.from({ length: totalSlides }).map((_, idx) => (
+          <span
+            key={idx}
+            className={idx === currentSlide ? styles.activeDot : styles.dot}
+            onClick={() => goToSlide(idx)}
+          />
+        ))}
+      </div>
     </section>
   );
 }
