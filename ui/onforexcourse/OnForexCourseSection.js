@@ -24,7 +24,7 @@ export default function OnForexCourseSection({
     return () => window.removeEventListener("resize", resize);
   }, []);
 
-  const totalSlides = Math.ceil(courses.length / cardsPerView);
+  const totalSlides = Math.ceil(courseList.length / cardsPerView);
   const currentSlide = Math.floor(current / cardsPerView);
 
   const goToSlide = (i) => setCurrent(i * cardsPerView);
