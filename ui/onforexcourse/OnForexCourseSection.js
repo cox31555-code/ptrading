@@ -11,27 +11,19 @@ export default function OnForexCourseSection({
 }) {
   const router = useRouter();
   const [courses, setCourses] = useState(courseList);
-  console.log(courses);
   const [current, setCurrent] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(1);
+  const [isMounted, setIsMounted] = useState(false);
+
   const calcCards = (w) => (w <= 1024 ? 1 : 3);
+
   useEffect(() => {
+    setIsMounted(true);
     const resize = () => setCardsPerView(calcCards(window.innerWidth));
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
   }, []);
-
-  // Debug logging for troubleshooting
-  if (typeof window !== "undefined") {
-    console.log(
-      "cardsPerView:",
-      cardsPerView,
-      "window width:",
-      window.innerWidth
-    );
-  }
-  console.log("courses.length:", courses.length);
 
   const totalSlides = Math.ceil(courses.length / cardsPerView);
   const currentSlide = Math.floor(current / cardsPerView);
