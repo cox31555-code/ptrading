@@ -51,8 +51,8 @@ export default function OnForexCourseSection({
           </p>
         </div>
 
-        {isMounted && cardsPerView > 1 && (
-          <div className={styles.arrowsRow}>
+        {cardsPerView > 1 && (
+          <div className={styles.arrowsRow} style={{ visibility: isMounted ? 'visible' : 'hidden' }}>
             <button
               className={styles.arrow}
               onClick={prev}
@@ -63,7 +63,7 @@ export default function OnForexCourseSection({
             <button
               className={styles.arrow}
               onClick={next}
-              disabled={current + cardsPerView >= courses.length}
+              disabled={current + cardsPerView >= courseList.length}
             >
               <img src="/svg/righarrow.svg" alt="Next" />
             </button>
