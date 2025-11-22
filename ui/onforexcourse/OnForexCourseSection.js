@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import CourseCard from "./courseCard/CourseCard";
 import styles from "./onforexcourseSection.module.css";
@@ -14,15 +14,15 @@ export default function OnForexCourseSection({
   const [cardsPerView, setCardsPerView] = useState(3);
   const [isMounted, setIsMounted] = useState(false);
 
-  const calcCards = (w) => (w <= 1024 ? 1 : 3);
+  const calcCards = useCallback((w) => (w <= 1024 ? 1 : 3), []);
 
   useEffect(() => {
     setIsMounted(true);
-    const resize = () => setCardsPerView(calcCards(window.innerWidth));
-    resize();
-    window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
-  }, []);
+    const handleResize = () => setCardsPerView(calcCards(window.innerWidth));
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [calcCards]);
 
   const totalSlides = Math.ceil(courseList.length / cardsPerView);
   const currentSlide = Math.floor(current / cardsPerView);
