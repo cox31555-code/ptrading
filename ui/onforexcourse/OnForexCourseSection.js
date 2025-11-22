@@ -24,14 +24,16 @@ export default function OnForexCourseSection({
     return () => window.removeEventListener("resize", handleResize);
   }, [calcCards]);
 
-  const totalSlides = Math.ceil(courseList.length / cardsPerView);
-  const currentSlide = Math.floor(current / cardsPerView);
+  // Use initial cardsPerView for rendering to ensure server/client consistency
+  const displayCardsPerView = isMounted ? cardsPerView : 3;
+  const totalSlides = Math.ceil(courseList.length / displayCardsPerView);
+  const currentSlide = Math.floor(current / displayCardsPerView);
 
-  const goToSlide = (i) => setCurrent(i * cardsPerView);
-  const prev = () => setCurrent((p) => Math.max(p - cardsPerView, 0));
+  const goToSlide = (i) => setCurrent(i * displayCardsPerView);
+  const prev = () => setCurrent((p) => Math.max(p - displayCardsPerView, 0));
   const next = () =>
     setCurrent((p) =>
-      Math.min(p + cardsPerView, (totalSlides - 1) * cardsPerView)
+      Math.min(p + displayCardsPerView, (totalSlides - 1) * displayCardsPerView)
     );
 
   return (
