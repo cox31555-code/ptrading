@@ -51,13 +51,11 @@ export default function Home({ courses }) {
           ...(indicesResponse?.data?.data || []),
         ];
 
-        // Shuffle and select random 8 courses
-        const shuffled = allCourses
-          .sort(() => Math.random() - 0.5)
-          .slice(0, 8);
+        // Select first 8 courses (no random shuffling to avoid hydration mismatch)
+        const selected = allCourses.slice(0, 8);
 
         // Transform to match expected format
-        const formatted = shuffled.map((course) => ({
+        const formatted = selected.map((course) => ({
           _id: course._id,
           image: course.image,
           title: course.title,
