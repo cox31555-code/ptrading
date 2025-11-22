@@ -3,11 +3,12 @@
   position: relative;
   max-width: 384px;
   width: 100%;
-  height:414px;
-  padding: 12px 12px 24px 12px;
+  height: auto;
+  min-height: 450px;
+  padding: 12px 12px 20px 12px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(85px);
@@ -35,14 +36,15 @@
 
 
 .imageWrapper {
- height: 207px;
+ height: 180px;
   width: 100%;
   border-radius: 20px;
 border: 0.4px solid #FFF;
   border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
   position: relative;
+  flex-shrink: 0;
 }
 
 .image {
@@ -52,82 +54,77 @@ border: 0.4px solid #FFF;
   border-radius: 12px;
   display: block;
 }
-.tagsRow {
+.ratingContainer {
   display: flex;
-
-  justify-content: flex-start;
   align-items: center;
-  border-radius: 45.725px;
-  background: radial-gradient(70.71% 70.71% at 50% 50%, rgba(0, 0, 0, 0.15) 50.03%, rgba(1, 210, 253, 0.30) 100%), rgba(255, 255, 255, 0.10);
-  gap: 8px;
-  position: relative;
-  border: none; 
- width:fit-content;
-}
-.tagsRow::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 45.725px;
-  padding: 0.9px; 
-  background: linear-gradient(
-    to bottom,
-    #00D4FE,
-    rgba(0, 212, 254, 0.4) 50%,
-    rgba(0, 212, 254, 0.1) 90%,
-    rgba(0, 212, 254, 0) 100%
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+  gap: 4px;
+  margin-bottom: 4px;
+  flex-shrink: 0;
 }
 
+.star {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  display: block;
+}
 
-.tag {
-    padding: 5.811px 19.786px 5.189px 19.214px;
+.reviewCount {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: Lato;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  margin-left: 4px;
+}
 
- color: #FFF;
-font-family: Lato;
-font-size: 16px;
-font-weight: 700;
-line-height: 17.917px; /* 111.979% */
-
+.priceSection {
+  color: #00D4FE;
+  font-family: Sansation;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  margin: 6px 0 8px 0;
+  text-transform: capitalize;
+  flex-grow: 0;
 }
 
 .title {
   color: #FFF;
 font-family: Sansation;
-font-size: 20px;
+font-size: 18px;
 font-weight: 700;
-line-height: 30px; /* 150% */
+line-height: 24px;
 text-transform: capitalize;
-max-width: 228px;
+max-width: 100%;
 width: 100%;
-margin:12px 0px ;
-
-
+margin: 6px 0px 4px 0px;
+flex-grow: 1;
 }
 .buttonsRow {
   width: 100%;
   display: flex;
-  justify-content: space-between; 
-  gap: auto;               
-  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: stretch;
+  margin-top: auto;
+  flex-shrink: 0;
 }
 .viewMoreBtn,
 .quickBuyBtn {
-  min-height: 41px !important;
-  height: 41px !important;
-  padding: 12px 24px !important;
+  min-height: 38px !important;
+  height: 38px !important;
+  padding: 10px 20px !important;
   border-radius: 52.257px !important;
-  font-size: 16px;
+  font-size: 14px;
   font-family: Lato;
   font-weight: 500;
-  max-width: 258.626px;
-  gap: 10px;
+  max-width: 100%;
+  gap: 8px;
+  flex: 1;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .viewMoreBtn:hover {
@@ -164,47 +161,33 @@ margin:12px 0px ;
 
 @media (max-width: 850px) {
   .card {
- margin:0 auto;
-max-width: 339px;;
-
-
-padding: 12px 12px 24px 12px;
-
-gap: 0px;
-align-self: stretch;
+    margin: 0 auto;
+    max-width: 339px;
+    padding: 12px 12px 16px 12px;
+    gap: 0px;
+    align-self: stretch;
+    min-height: auto;
   }
   .imageWrapper {
-
-   border-radius: 20px;
-height: 207px;
-
+    border-radius: 20px;
+    height: 160px;
+    margin-bottom: 8px;
   }
-  .image{
-    height:207px;
+  .image {
+    height: 160px;
   }
-.tagsRow {width:fit-content;
-height:29px;
-}
-
   .title {
-
-    margin:12px 0px;
+    margin: 4px 0px 2px 0px;
+    font-size: 16px;
   }
-
- .actionsRow {
-  display: flex;
-  flex-direction: row;
-  gap: 12px;
-  justify-content: flex-end;
-  flex-wrap: nowrap;
+  .viewMoreBtn,
+  .quickBuyBtn {
+    width: auto;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 8px 16px !important;
+    min-height: 34px !important;
+    height: 34px !important;
+  }
 }
-
-.viewMoreBtn,
-.quickBuyBtn {
-  width: auto;
-  flex: 0 0 auto;
-  white-space: nowrap;
-}
-
-}
-

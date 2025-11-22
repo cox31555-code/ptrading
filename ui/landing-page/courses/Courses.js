@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import classes from "./courses.module.css";
 
 const Courses = ({
@@ -7,6 +8,7 @@ const Courses = ({
   cardsPerView: initialCardsPerView = 4,
   sectionTitle = "Our Latest Courses",
 }) => {
+  const router = useRouter();
   const [current, setCurrent] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(initialCardsPerView);
 
@@ -37,6 +39,17 @@ const Courses = ({
   const goRight = () =>
     setCurrent((prev) => Math.min(DOTS_COUNT - 1, prev + 1));
   const goTo = (idx) => setCurrent(idx);
+
+  const handleViewMore = (courseId, category) => {
+    // Determine the correct route based on category
+    let route = "/courses";
+    if (category === "Stocks" || category === "Indices") {
+      route = "/stocks";
+    } else if (category === "Bots") {
+      route = "/bots";
+    }
+    router.push(`${route}/${courseId}`);
+  };
 
   return (
     <>
@@ -74,7 +87,12 @@ const Courses = ({
                 <div className={classes.cardContent}>
                   <h3 className={classes.title}>{course.title}</h3>
                   <p className={classes.desc}>{course.desc}</p>
-                  <button className={classes.viewMore}>View More</button>
+                  <button
+                    className={classes.viewMore}
+                    onClick={() => handleViewMore(course._id, course.category)}
+                  >
+                    View More
+                  </button>
                 </div>
               </div>
             ))}

@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import CourseCard from "./courseCard/CourseCard";
 import styles from "./onforexcourseSection.module.css";
 
@@ -8,37 +9,31 @@ export default function OnForexCourseSection({
   showBlueEllipse = true,
   courseList = [],
 }) {
-  const [courses, setCourses] = useState(courseList);
-  console.log(courses);
+  const router = useRouter();
   const [current, setCurrent] = useState(0);
-  const [cardsPerView, setCardsPerView] = useState(1);
-  const calcCards = (w) => (w <= 1024 ? 1 : 3);
+  const [cardsPerView, setCardsPerView] = useState(3);
+  const [isMounted, setIsMounted] = useState(false);
+
+  const calcCards = useCallback((w) => (w <= 1024 ? 1 : 3), []);
+
   useEffect(() => {
-    const resize = () => setCardsPerView(calcCards(window.innerWidth));
-    resize();
-    window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
-  }, []);
+    setIsMounted(true);
+    const handleResize = () => setCardsPerView(calcCards(window.innerWidth));
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [calcCards]);
 
-  // Debug logging for troubleshooting
-  if (typeof window !== "undefined") {
-    console.log(
-      "cardsPerView:",
-      cardsPerView,
-      "window width:",
-      window.innerWidth
-    );
-  }
-  console.log("courses.length:", courses.length);
+  // Use initial cardsPerView for rendering to ensure server/client consistency
+  const displayCardsPerView = isMounted ? cardsPerView : 3;
+  const totalSlides = Math.ceil(courseList.length / displayCardsPerView);
+  const currentSlide = Math.floor(current / displayCardsPerView);
 
-  const totalSlides = Math.ceil(courses.length / cardsPerView);
-  const currentSlide = Math.floor(current / cardsPerView);
-
-  const goToSlide = (i) => setCurrent(i * cardsPerView);
-  const prev = () => setCurrent((p) => Math.max(p - cardsPerView, 0));
+  const goToSlide = (i) => setCurrent(i * displayCardsPerView);
+  const prev = () => setCurrent((p) => Math.max(p - displayCardsPerView, 0));
   const next = () =>
     setCurrent((p) =>
-      Math.min(p + cardsPerView, (totalSlides - 1) * cardsPerView)
+      Math.min(p + displayCardsPerView, (totalSlides - 1) * displayCardsPerView)
     );
 
   return (
@@ -58,7 +53,7 @@ export default function OnForexCourseSection({
           </p>
         </div>
 
-        {cardsPerView > 1 && (
+        {isMounted && displayCardsPerView > 1 && (
           <div className={styles.arrowsRow}>
             <button
               className={styles.arrow}
@@ -70,7 +65,7 @@ export default function OnForexCourseSection({
             <button
               className={styles.arrow}
               onClick={next}
-              disabled={current + cardsPerView >= courses.length}
+              disabled={current + displayCardsPerView >= courseList.length}
             >
               <img src="/svg/righarrow.svg" alt="Next" />
             </button>
@@ -81,11 +76,11 @@ export default function OnForexCourseSection({
       {/* ---------- Cards---------- */}
       <div className={styles.sliderContainer}>
         <div className={styles.cardsRow}>
-          {courses.slice(current, current + cardsPerView).map((course, idx) => (
+          {courseList.slice(current, current + displayCardsPerView).map((course) => (
             <CourseCard
-              key={course.id ?? current + idx}
+              key={course._id}
               data={course}
-              onViewMore={() => {}}
+              onViewMore={() => router.push(`/courses/${course._id}`)}
               onQuickBuy={() => {}}
             />
           ))}
@@ -93,15 +88,17 @@ export default function OnForexCourseSection({
       </div>
 
       {/* -------- Dots ---------- */}
-      <div className={styles.dotsRow}>
-        {Array.from({ length: totalSlides }).map((_, idx) => (
-          <span
-            key={idx}
-            className={idx === currentSlide ? styles.activeDot : styles.dot}
-            onClick={() => goToSlide(idx)}
-          />
-        ))}
-      </div>
+      {isMounted && (
+        <div className={styles.dotsRow}>
+          {Array.from({ length: totalSlides }).map((_, idx) => (
+            <span
+              key={idx}
+              className={idx === currentSlide ? styles.activeDot : styles.dot}
+              onClick={() => goToSlide(idx)}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

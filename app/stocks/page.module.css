@@ -1,0 +1,57 @@
+.effectWrapper {
+  position: absolute;
+  width: 322px;
+  height: 322px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.blueEllipseEffect {
+  border-radius: 274.344px;
+  width: 250.344px;
+  height: 250.344px;
+  background: linear-gradient(
+    90deg,
+    #00d4fe 0%,
+    #01d1fd 26%,
+    #07c8fb 43%,
+    #10b9f8 57%,
+    #1da5f4 70%,
+    #2f8aef 81%,
+    #4469e8 92%,
+    #574ce3 100%
+  );
+  flex-shrink: 0;
+  filter: blur(201.9239959716797px);
+
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.saltEffectRight {
+  position: absolute;
+  inset: 0;
+  width: 100px;
+  height: 220px;
+  transform: scale(3.2);
+  opacity: 0.5;
+  z-index: 1;
+  pointer-events: none;
+  object-fit: cover;
+}
+
+.topRight {
+  top: 1400px;
+  right: -370px;
+}
+
+.topLeft {
+  top: 460px;
+  left: -270px;
+}
+
+.bottomLeft {
+  top: 1550px;
+  left: -250px;
+}

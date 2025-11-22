@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import classes from "./footer.module.css";
 import Link from "next/link";
@@ -44,15 +46,19 @@ const Footer = () => {
           <h4 className={classes["title"]}>Our Courses</h4>
           <div className={classes["optionsSecond"]}>
             {[
-              "Forex Trading Course (For Beginners)",
-              "Forex Trading Advance Course (Level 1 + Level 2)",
-              "Forex Trading Advance Course (Level - 1)",
-              "Forex Trading Advance Course (Level - 2)",
-              "Forex Trading Complete Package",
+              { label: "Forex", href: "/courses?category=forex" },
+              { label: "Stocks/Indices", href: "/stocks" },
+              { label: "Crypto", href: "/courses?category=crypto" },
+              { label: "Trading Bots", href: "/bots" },
+              { label: "Software", href: "/courses?category=software" },
             ].map((item, index) => (
-              <span key={index} className={classes.footerOptionSecondary}>
-                {item}
-              </span>
+              <Link
+                key={index}
+                href={item.href}
+                className={classes.footerOptionSecondary}
+              >
+                {item.label}
+              </Link>
             ))}
           </div>
         </div>
@@ -60,18 +66,19 @@ const Footer = () => {
           <h4 className={classes["title"]}>Quick Links</h4>
           <div className={classes["optionsThird"]}>
             {[
-              "About Polar Trading Services",
-              "Contact Us",
-              "Home",
-              "Privacy Policy",
-              "Terms & Conditions",
-            ].map((item, index) => (
+              { label: "Home", href: "/" },
+              { label: "About Polar Trading Services", href: "/" },
+              { label: "Contact Us", href: "/contact-us" },
+              { label: "Privacy Policy", href: "/privacy-policy" },
+              { label: "Terms & Conditions", href: "/tandc" },
+              { label: "Refund Policy", href: "/refund-policy" },
+            ].map((link, index) => (
               <Link
                 key={index}
-                href="/"
+                href={link.href}
                 className={classes.footerOptionSecondary}
               >
-                {item}
+                {link.label}
               </Link>
             ))}
           </div>

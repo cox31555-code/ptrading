@@ -10,6 +10,8 @@ export default function Header() {
 
   let variant = "default";
   if (pathname.startsWith("/forex")) variant = "forex";
+  else if (pathname.startsWith("/stocks")) variant = "forex";
+  else if (pathname.startsWith("/bots")) variant = "forex";
   else if (pathname.startsWith("/crypto")) variant = "crypto";
   else if (pathname.startsWith("/contact-us")) variant = "contact";
   else if (pathname.startsWith("/checkout")) variant = "checkout";

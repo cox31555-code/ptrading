@@ -4,9 +4,7 @@ import Image from "next/image";
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
-import { TbBrandYoutube } from "react-icons/tb";
-import { FaWhatsapp } from "react-icons/fa6";
+import { FaTelegram } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 
@@ -15,38 +13,46 @@ const TopMenu = () => {
     facebook: "",
     twitter: "",
     instagram: "",
-    linkedin: "",
-    youtube: "",
-    whatsapp: "",
+    telegram: "",
   });
 
   useEffect(() => {
-    const fetchSocialLinks = async () => {
-      try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/social`,
-          {
-            method: "GET",
-            credentials: "include",
-          }
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch social links");
-        }
-
-        const data = await response.json();
-        console.log("data", data);
-        // Assuming the first social media set in the response
-        if (data) {
-          console.log("data", data?.data?.data[0]);
-          setSocialLinks(data?.data?.data[0] || {});
-        }
-      } catch (error) {
-        console.error("Error fetching social links:", error);
-      }
+    // Using default social links - update these with your actual social media URLs
+    const defaultSocialLinks = {
+      facebook: "https://facebook.com",
+      twitter: "https://twitter.com",
+      instagram: "https://instagram.com",
+      telegram: "https://telegram.org",
     };
 
-    fetchSocialLinks();
+    setSocialLinks(defaultSocialLinks);
+
+    // Optional: Uncomment below to fetch from API if endpoint becomes available
+    // const fetchSocialLinks = async () => {
+    //   try {
+    //     const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/social`;
+    //     const response = await fetch(apiUrl, {
+    //       method: "GET",
+    //       credentials: "include",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //     });
+
+    //     if (!response.ok) {
+    //       throw new Error(`HTTP Error: ${response.status}`);
+    //     }
+
+    //     const data = await response.json();
+    //     if (data?.data?.data?.[0]) {
+    //       setSocialLinks(data.data.data[0]);
+    //     }
+    //   } catch (error) {
+    //     console.warn("Could not fetch social links from API, using defaults");
+    //   }
+    // };
+
+    // fetchSocialLinks();
   }, []);
 
   const handleSocialClick = (url) => {
@@ -83,24 +89,10 @@ const TopMenu = () => {
         </div>
         <div
           className={classes["social-elem"]}
-          onClick={() => handleSocialClick(socialLinks.linkedin)}
+          onClick={() => handleSocialClick(socialLinks.telegram)}
           style={{ cursor: "pointer" }}
         >
-          <FaLinkedinIn className={classes["social-icon"]} />
-        </div>
-        <div
-          className={classes["social-elem"]}
-          onClick={() => handleSocialClick(socialLinks.youtube)}
-          style={{ cursor: "pointer" }}
-        >
-          <TbBrandYoutube className={classes["social-icon"]} />
-        </div>
-        <div
-          className={classes["social-elem"]}
-          onClick={() => handleSocialClick(socialLinks.whatsapp)}
-          style={{ cursor: "pointer" }}
-        >
-          <FaWhatsapp className={classes["social-icon"]} />
+          <FaTelegram className={classes["social-icon"]} />
         </div>
       </div>
       <div className={classes["info"]}>

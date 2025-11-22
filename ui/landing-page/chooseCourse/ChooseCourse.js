@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from 'react';
 import styles from './chooseCourse.module.css';
 import Tag from '@/ui/common/tag/Tag';

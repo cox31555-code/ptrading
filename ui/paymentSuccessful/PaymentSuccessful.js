@@ -13,7 +13,7 @@ const PaymentSuccessful = ({ onDone }) => {
         src="/svg/payment-successful.svg"
         alt="successful"
       />
-      <p className={classes["amount"]}>$50.50</p>
+      <p className={classes["amount"]}>£50.50</p>
       <p className={classes["success-message"]}>Payment Successful!</p>
       <p className={`${lato.className} ${classes["message"]}`}>
         Your payment was successfully made. Check your Inbox for the Login

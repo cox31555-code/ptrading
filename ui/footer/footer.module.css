@@ -101,6 +101,13 @@ line-height: 26px; /* 162.5% */
   font-style: normal;
   font-weight: 400;
   line-height: 36px; /* 180% */
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.footerOptionSecondary:hover {
+  color: #ffffff;
 }
 
 .copywrite {
@@ -215,10 +222,8 @@ margin-bottom: 16px;
 }
   .footerOptionSecondary {
     font-size: 14px;
-font-weight: 400;
-line-height: 36px;
-
-
+    font-weight: 400;
+    line-height: 36px;
   }
 
   .contactRow {
@@ -244,6 +249,3 @@ margin: 0px;
 
   }
 }
-
-
-

@@ -41,17 +41,14 @@ export default function Navbar({ variant = "default" }) {
               <Link href="/courses?category=forex" className={classes.option}>
               FOREX
             </Link>
+            <Link href="/stocks" className={classes.option}>
+              STOCKS/INDICES
+            </Link>
             <Link href="/courses?category=crypto" className={classes.option}>
               CRYPTO
             </Link>
-            <Link
-              href="/courses?category=indices/futures"
-              className={classes.option}
-            >
-              INDICIES/FUTURES
-            </Link>
-            <Link href="/courses?category=bots" className={classes.option}>
-              BOTS
+            <Link href="/bots" className={classes.option}>
+              TRADING BOTS
             </Link>
             <Link href="/courses?category=software" className={classes.option}>
               SOFTWARE
@@ -109,6 +106,13 @@ export default function Navbar({ variant = "default" }) {
                 FOREX
               </Link>
               <Link
+                href="/stocks"
+                className={classes.option}
+                onClick={() => setMenuOpen(false)}
+              >
+                STOCKS/INDICES
+              </Link>
+              <Link
                 href="/courses?category=crypto"
                 className={classes.option}
                 onClick={() => setMenuOpen(false)}
@@ -116,18 +120,11 @@ export default function Navbar({ variant = "default" }) {
                 CRYPTO
               </Link>
               <Link
-                href="/courses?category=indices/futures"
+                href="/bots"
                 className={classes.option}
                 onClick={() => setMenuOpen(false)}
               >
-                INDICIES/FUTURES
-              </Link>
-              <Link
-                href="/courses?category=bots"
-                className={classes.option}
-                onClick={() => setMenuOpen(false)}
-              >
-                BOTS
+                TRADING BOTS
               </Link>
               <Link
                 href="/courses?category=software"

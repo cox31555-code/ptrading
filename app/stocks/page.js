@@ -4,30 +4,19 @@ import CoursesAPI from "@/utils/courses";
 
 const page = async ({ searchParams }) => {
   const params = await searchParams;
-  const category = params?.category;
+  const category = params?.category || "Stocks";
   const priceFrom = params?.priceFrom ? Number(params.priceFrom) : undefined;
   const priceTo = params?.priceTo ? Number(params.priceTo) : undefined;
   const search = params?.search || "";
   const page = params?.page ? Number(params.page) : 1;
 
-  // Fetch all courses (unpaginated) for the "Recommended" section
-  let allCoursesData = null;
-  try {
-    allCoursesData = await CoursesAPI.getAllCourses({
-      ...(category && { category }),
-    });
-  } catch (error) {
-    console.error("Error fetching all courses:", error);
-    allCoursesData = { data: { data: [] } };
-  }
-
-  // Fetch courses with pagination for the main listing
+  // Fetch courses with all parameters
   let coursesData = null;
   try {
     const apiParams = {
       page,
       limit: 12,
-      ...(category && { category }),
+      category: category,
       ...(priceFrom && { priceFrom }),
       ...(priceTo && { priceTo }),
       ...(search && { search }),
@@ -69,7 +58,6 @@ const page = async ({ searchParams }) => {
 
       <ForexPage
         courses={coursesData?.data?.data || []}
-        allCourses={allCoursesData?.data?.data || []}
         category={category}
         priceFrom={priceFrom}
         priceTo={priceTo}
