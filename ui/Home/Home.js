@@ -98,7 +98,7 @@ export default function Home({ courses }) {
         sectionTitle="Our Latest Courses"
       />
       <ChooseCourse />
-      <OnForexCourseSection courseList={courses} />
+      <OnForexCourseSection courseList={courseList} />
       <Work />
     </div>
   );
