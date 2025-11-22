@@ -1,5 +1,3 @@
-"use client";
-import { useEffect, useState } from "react";
 import Hero from "../landing-page/hero/Hero";
 import BlogSection from "../landing-page/blogSection/BlogSection";
 import Stats from "../landing-page/stats/Stats";
@@ -13,69 +11,60 @@ import TopBar from "../landing-page/courses/TopBar";
 import Courses from "../landing-page/courses/Courses";
 import ChooseCourse from "../landing-page/chooseCourse/ChooseCourse";
 import CoursesAPI from "@/utils/courses";
-// import BlogSection from "../landing-page/blogSection/BlogSection"; // Removed from homepage
 
-export default function Home({ courses }) {
-  const [courseList, setCourseList] = useState([]);
+async function getCoursesData() {
+  try {
+    // Fetch all courses from all categories
+    const forexResponse = await CoursesAPI.getAllCourses({
+      category: "Forex",
+      limit: 100,
+      page: 1,
+    });
+    const stocksResponse = await CoursesAPI.getAllCourses({
+      category: "Stocks",
+      limit: 100,
+      page: 1,
+    });
+    const botsResponse = await CoursesAPI.getAllCourses({
+      category: "Bots",
+      limit: 100,
+      page: 1,
+    });
+    const indicesResponse = await CoursesAPI.getAllCourses({
+      category: "Indices",
+      limit: 100,
+      page: 1,
+    });
 
-  useEffect(() => {
-    const loadRandomCourses = async () => {
-      try {
-        // Fetch all courses from all categories
-        const forexResponse = await CoursesAPI.getAllCourses({
-          category: "Forex",
-          limit: 100,
-          page: 1,
-        });
-        const stocksResponse = await CoursesAPI.getAllCourses({
-          category: "Stocks",
-          limit: 100,
-          page: 1,
-        });
-        const botsResponse = await CoursesAPI.getAllCourses({
-          category: "Bots",
-          limit: 100,
-          page: 1,
-        });
-        const indicesResponse = await CoursesAPI.getAllCourses({
-          category: "Indices",
-          limit: 100,
-          page: 1,
-        });
+    // Combine all courses
+    const allCourses = [
+      ...(forexResponse?.data?.data || []),
+      ...(stocksResponse?.data?.data || []),
+      ...(botsResponse?.data?.data || []),
+      ...(indicesResponse?.data?.data || []),
+    ];
 
-        // Combine all courses
-        const allCourses = [
-          ...(forexResponse?.data?.data || []),
-          ...(stocksResponse?.data?.data || []),
-          ...(botsResponse?.data?.data || []),
-          ...(indicesResponse?.data?.data || []),
-        ];
+    // Select first 8 courses (deterministic, no shuffling)
+    const selected = allCourses.slice(0, 8);
 
-        // Select first 8 courses (no random shuffling to avoid hydration mismatch)
-        const selected = allCourses.slice(0, 8);
+    // Transform to match expected format
+    const formatted = selected.map((course) => ({
+      _id: course._id,
+      image: course.image,
+      title: course.title,
+      desc: course.details || course.description,
+      category: course.category,
+    }));
 
-        // Transform to match expected format
-        const formatted = selected.map((course) => ({
-          _id: course._id,
-          image: course.image,
-          title: course.title,
-          desc: course.details || course.description,
-          category: course.category,
-        }));
+    return formatted;
+  } catch (error) {
+    console.error("Error loading courses:", error);
+    return [];
+  }
+}
 
-        setCourseList(formatted);
-      } catch (error) {
-        console.error("Error loading courses:", error);
-        // Fallback to dummy data
-        fetch("/dummy/coursesData.json")
-          .then((res) => res.json())
-          .then((data) => setCourseList(data))
-          .catch((err) => console.error("Error loading dummy data:", err));
-      }
-    };
-
-    loadRandomCourses();
-  }, []);
+export default async function Home() {
+  const courseList = await getCoursesData();
 
   return (
     <div className={styles.page}>
