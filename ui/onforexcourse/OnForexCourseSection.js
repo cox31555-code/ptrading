@@ -53,7 +53,7 @@ export default function OnForexCourseSection({
           </p>
         </div>
 
-        {isMounted && cardsPerView > 1 && (
+        {isMounted && displayCardsPerView > 1 && (
           <div className={styles.arrowsRow}>
             <button
               className={styles.arrow}
@@ -65,7 +65,7 @@ export default function OnForexCourseSection({
             <button
               className={styles.arrow}
               onClick={next}
-              disabled={current + cardsPerView >= courseList.length}
+              disabled={current + displayCardsPerView >= courseList.length}
             >
               <img src="/svg/righarrow.svg" alt="Next" />
             </button>
